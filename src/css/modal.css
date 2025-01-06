@@ -85,6 +85,7 @@
 
 .modal-form-label {
   display: flex;
+  align-items: center;
   gap: 12px;
   color: #1b1d1b;
 }
