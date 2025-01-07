@@ -39,6 +39,12 @@
   font-weight: 500;
   text-transform: uppercase;
   color: #f7fbfb;
+  transition: background-color 250ms, color 250ms;
+}
+
+.upcoming-block-button:active {
+  background-color: #f7fbfb;
+  color: #1b1d1b;
 }
 
 .upcoming-list {
@@ -64,9 +70,9 @@
 }
 
 .upcoming-list-item-button-pic {
-  fill: #5b86a1;
+  fill: #a3a5a3;
 }
 
-.end-list {
-  fill: #a3a5a3;
+.upcoming-list-item-button:active .upcoming-list-item-button-pic {
+  fill: #5b86a1;
 }
