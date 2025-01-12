@@ -1,8 +1,8 @@
 <section class="upcoming">
   <div class="container">
     <h2 class="upcoming-title">Upcoming tours</h2>
-    <ul>
-      <li>
+    <ul class="upcoming-tours-list">
+      <li class="upcoming-tours-list-item selected-card" id="first-card">
         <img
           class="upcoming-img"
           src="/img/upcoming/hoverla.jpg"
@@ -16,7 +16,7 @@
         </div>
       </li>
 
-      <li>
+      <li class="upcoming-tours-list-item fourd-position" id="second-card">
         <img
           class="upcoming-img"
           src="/img/upcoming/bukovel.jpg"
@@ -30,7 +30,7 @@
         </div>
       </li>
 
-      <li>
+      <li class="upcoming-tours-list-item fived-position" id="third-card">
         <img
           class="upcoming-img"
           src="/img/upcoming/carpati.jpg"
@@ -47,19 +47,33 @@
 
     <ul class="upcoming-list">
       <li class="upcoming-list-item">
-        <button class="upcoming-list-item-button">
+        <button
+          type="button"
+          class="upcoming-list-item-button"
+          id="upcoming-button-left"
+        >
           <svg
-            class="upcoming-list-item-button-pic end-list"
+            class="upcoming-list-item-button-pic-disabled"
             width="11"
             height="19"
+            id="left-button-scroll"
           >
             <use href="/img/icons.svg#icon-left"></use>
           </svg>
         </button>
       </li>
       <li class="upcoming-list-item">
-        <button class="upcoming-list-item-button">
-          <svg class="upcoming-list-item-button-pic" width="11" height="19">
+        <button
+          type="button"
+          class="upcoming-list-item-button"
+          id="upcoming-button-right"
+        >
+          <svg
+            class="upcoming-list-item-button-pic"
+            id="right-button-scroll"
+            width="11"
+            height="19"
+          >
             <use href="/img/icons.svg#icon-right"></use>
           </svg>
         </button>
