@@ -18,7 +18,7 @@
       rel="stylesheet"
     />
     <script type="module" crossorigin src="/Practice_6/index.js"></script>
-    <link rel="stylesheet" crossorigin href="/Practice_6/assets/index-C1LlepE4.css">
+    <link rel="stylesheet" crossorigin href="/Practice_6/assets/index-r15jYpbv.css">
   </head>
 
   <body>
@@ -184,8 +184,8 @@
     <section class="upcoming">
   <div class="container">
     <h2 class="upcoming-title">Upcoming tours</h2>
-    <ul>
-      <li>
+    <ul class="upcoming-tours-list">
+      <li class="upcoming-tours-list-item selected-card" id="first-card">
         <img
           class="upcoming-img"
           src="/Practice_6/assets/hoverla-DvWRSOaI.jpg"
@@ -199,7 +199,7 @@
         </div>
       </li>
 
-      <li>
+      <li class="upcoming-tours-list-item fourd-position" id="second-card">
         <img
           class="upcoming-img"
           src="/Practice_6/assets/bukovel-Uj9S4Aof.jpg"
@@ -213,7 +213,7 @@
         </div>
       </li>
 
-      <li>
+      <li class="upcoming-tours-list-item fived-position" id="third-card">
         <img
           class="upcoming-img"
           src="/Practice_6/assets/carpati-BqlPUDfl.jpg"
@@ -230,19 +230,33 @@
 
     <ul class="upcoming-list">
       <li class="upcoming-list-item">
-        <button class="upcoming-list-item-button">
+        <button
+          type="button"
+          class="upcoming-list-item-button"
+          id="upcoming-button-left"
+        >
           <svg
-            class="upcoming-list-item-button-pic end-list"
+            class="upcoming-list-item-button-pic-disabled"
             width="11"
             height="19"
+            id="left-button-scroll"
           >
             <use href="/Practice_6/assets/icons-CvAWb-MR.svg#icon-left"></use>
           </svg>
         </button>
       </li>
       <li class="upcoming-list-item">
-        <button class="upcoming-list-item-button">
-          <svg class="upcoming-list-item-button-pic" width="11" height="19">
+        <button
+          type="button"
+          class="upcoming-list-item-button"
+          id="upcoming-button-right"
+        >
+          <svg
+            class="upcoming-list-item-button-pic"
+            id="right-button-scroll"
+            width="11"
+            height="19"
+          >
             <use href="/Practice_6/assets/icons-CvAWb-MR.svg#icon-right"></use>
           </svg>
         </button>
