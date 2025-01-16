@@ -1,0 +1,135 @@
+.upcoming-backdrop {
+  /* position: fixed; */
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
+  z-index: 2000;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.upcoming-modal {
+  margin: auto auto;
+  background-color: #f7fbfb;
+  padding: 28px 0;
+  height: 100%;
+}
+
+.upcoming-modal .container {
+  padding: 0 0;
+  position: relative;
+  width: 315px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.upcoming-modal-closebtn {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.upcoming-modal-title {
+  position: absolute;
+  top: 56px;
+  left: 48px;
+  font-weight: 600;
+  font-size: 18px;
+  color: #f7fbfb;
+}
+
+.upcoming-modal-list {
+  margin-bottom: 28px;
+}
+
+.upcoming-modal-list-item {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/upcoming/hoverla.jpg');
+  background-position: center;
+  background-size: cover;
+  padding: 90px 0 20px;
+}
+
+@media screen and (max-width: 767px) and (min-resolution: 192dpi) {
+  .upcoming-modal-list-item {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/upcoming/hoverla@2x.jpg');
+  }
+}
+
+.upcoming-modal-list-item-block {
+  width: 278px;
+  margin-bottom: 86px;
+}
+
+.upcoming-modal-list-item-block-days {
+  padding: 14px 0 14px 48px;
+  background: #5b86a1;
+  border-radius: 0 8px 8px 0;
+  font-weight: 500;
+  color: #f7fbfb;
+  margin-bottom: 12px;
+}
+
+.upcoming-modal-list-item-block-options {
+  padding-left: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.upcoming-modal-list-item-block-options-item {
+  font-weight: 500;
+  color: #f7fbfb;
+  line-height: 1.25;
+}
+
+.upcoming-modal-list-item-listbtn {
+  width: 60px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.upcoming-modal-list-item-listbtn-item {
+  width: 12px;
+  height: 12px;
+}
+
+.upcoming-modal-list-item-listbtn-item-btn {
+  width: 100%;
+  border-radius: 50%;
+  height: 100%;
+  background-color: #a3a5a3;
+  border: none;
+}
+
+.selected-card-button {
+  background-color: #f7fbfb;
+}
+
+.upcoming-modal-price {
+  font-weight: 600;
+  text-align: center;
+  color: #202321;
+  margin-bottom: 16px;
+}
+
+.upcoming-modal-bookbtn {
+  width: 285px;
+  padding: 16px 0;
+  font-weight: 500;
+  color: #f7fbfb;
+  background: #5b86a1;
+  border: none;
+  margin: 0 auto;
+}
