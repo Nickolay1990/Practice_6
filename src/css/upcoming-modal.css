@@ -8,6 +8,16 @@
 	display: flex;
 	flex-direction: column;
 	background-color: #f7fbfb;
+	pointer-events: none;
+	visibility: hidden;
+	transition: opacity 0.5s ease, visibility 0.5s ease;
+	opacity: 0;
+}
+
+.upcoming-modal.is-open {
+	opacity: 1;
+	pointer-events: all;
+	visibility: visible;
 }
 
 .upcoming-modal-closebtn {
@@ -21,6 +31,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	z-index: 999;
 }
 
 .upcoming-modal-title {
@@ -43,6 +54,7 @@
 	width: 100%;
 	padding-top: 56px;
 	position: relative;
+	transition: transform 250ms;
 }
 
 .first-hoverla {
@@ -63,10 +75,10 @@
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
-	position: absolute;
+	/* position: absolute;
 	top: 0;
 	left: 0;
-	transform: translateX(100%);
+	transform: translateX(100%); */
 }
 
 @media screen and (max-width: 767px) and (min-resolution: 192dpi) {
@@ -80,10 +92,10 @@
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
-	position: absolute;
+	/* position: absolute;
 	top: 0;
 	left: 0;
-	transform: translateX(200%);
+	transform: translateX(200%); */
 }
 
 @media screen and (max-width: 767px) and (min-resolution: 192dpi) {
@@ -175,4 +187,37 @@
 	color: #000;
 	align-self: flex-end;
 	line-height: 2;
+}
+
+.selected-card-modal-days {
+	transform: translateX(0);
+	position: static;
+}
+
+.first-position-modal-days {
+	transform: translateX(-200%);
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.second-position-modal-days {
+	transform: translateX(-100%);
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.fourd-position-modal-days {
+	transform: translateX(100%);
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.fived-position-modal-days {
+	transform: translateX(200%);
+	position: absolute;
+	top: 0;
+	left: 0;
 }
