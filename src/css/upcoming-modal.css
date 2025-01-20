@@ -34,14 +34,6 @@
 	z-index: 999;
 }
 
-.upcoming-modal-title {
-	font-weight: 600;
-	font-size: 18px;
-	color: #f7fbfb;
-	padding-left: 48px;
-	margin-bottom: 12px;
-}
-
 .upcoming-modal-list {
 	height: 100%;
 	position: relative;
@@ -75,10 +67,6 @@
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
-	/* position: absolute;
-	top: 0;
-	left: 0;
-	transform: translateX(100%); */
 }
 
 @media screen and (max-width: 767px) and (min-resolution: 192dpi) {
@@ -92,16 +80,20 @@
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
-	/* position: absolute;
-	top: 0;
-	left: 0;
-	transform: translateX(200%); */
 }
 
 @media screen and (max-width: 767px) and (min-resolution: 192dpi) {
 	.third-hoverla {
 		background-image: url('/img/upcoming/hoverla-third@2x.jpg');
 	}
+}
+
+.upcoming-modal-title {
+	font-weight: 600;
+	font-size: 18px;
+	color: #f7fbfb;
+	padding-left: 48px;
+	margin-bottom: 12px;
 }
 
 .upcoming-modal-list-item-block {
@@ -135,9 +127,8 @@
 }
 
 .upcoming-modal-list-item-listbtn {
-	width: 60px;
 	display: flex;
-	justify-content: space-between;
+	gap: 12px;
 	position: absolute;
 	left: 50%;
 	bottom: 20px;
@@ -153,6 +144,10 @@
 
 .selected-card-days {
 	background-color: #f7fbfb;
+}
+
+.upcoming-modal-btnblock {
+	padding: 28px 15px;
 }
 
 .upcoming-modal-price {
@@ -176,10 +171,6 @@
 .upcoming-modal-bookbtn:active {
 	background-color: #f7fbfb;
 	color: #1b1d1b;
-}
-
-.upcoming-modal-btnblock {
-	padding: 28px 15px;
 }
 
 .upcoming-modal-list-item-block-days-low {
@@ -220,4 +211,62 @@
 	position: absolute;
 	top: 0;
 	left: 0;
+}
+
+/* bukovel */
+
+.first-bukovel {
+	background-image: url('/img/upcoming/bukovel-first.jpg');
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 767px) and (min-resolution: 192dpi) {
+	.first-bukovel {
+		background-image: url('/img/upcoming/bukovel-first@2x.jpg');
+	}
+}
+
+.second-bukovel {
+	background-image: url('/img/upcoming/bukovel-second.jpg');
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 767px) and (min-resolution: 192dpi) {
+	.second-bukovel {
+		background-image: url('/img/upcoming/bukovel-second@2x.jpg');
+	}
+}
+
+.third-bukovel {
+	background-image: url('/img/upcoming/bukovel-third.jpg');
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 767px) and (min-resolution: 192dpi) {
+	.third-bukovel {
+		background-image: url('/img/upcoming/bukovel-third@2x.jpg');
+	}
+}
+
+.fourd-bukovel {
+	background-image: url('/img/upcoming/bukovel-fourd.jpg');
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 767px) and (min-resolution: 192dpi) {
+	.fourd-bukovel {
+		background-image: url('/img/upcoming/bukovel-fourd@2x.jpg');
+	}
+}
+
+.upcoming-modal-list-item-block-bukovel {
+	width: 300px;
 }
