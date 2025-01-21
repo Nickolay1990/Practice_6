@@ -185,29 +185,15 @@
 	position: static;
 }
 
-.first-position-modal-days {
-	transform: translateX(-200%);
-	position: absolute;
-	top: 0;
-	left: 0;
-}
-
-.second-position-modal-days {
+.left-position {
 	transform: translateX(-100%);
 	position: absolute;
 	top: 0;
 	left: 0;
 }
 
-.fourd-position-modal-days {
+.right-position {
 	transform: translateX(100%);
-	position: absolute;
-	top: 0;
-	left: 0;
-}
-
-.fived-position-modal-days {
-	transform: translateX(200%);
 	position: absolute;
 	top: 0;
 	left: 0;

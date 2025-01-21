@@ -1,134 +1,132 @@
 .backdrop {
-  width: 100%;
-  height: 100vh;
-  z-index: 1000;
-  background: rgba(32, 35, 33, 0.5);
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  pointer-events: none;
-  visibility: hidden;
-  transition: opacity 0.5s ease, visibility 0.5s ease;
+	width: 100%;
+	height: 100vh;
+	z-index: 3000;
+	background: rgba(32, 35, 33, 0.5);
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	opacity: 0;
+	pointer-events: none;
+	visibility: hidden;
+	transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
 .backdrop.is-open {
-  opacity: 1;
-  pointer-events: all;
-  visibility: visible;
+	opacity: 1;
+	pointer-events: all;
+	visibility: visible;
 }
 
 .modal {
-  max-width: 375px;
-  background-color: #f7fbfb;
-  position: relative;
+	max-width: 375px;
+	background-color: #f7fbfb;
+	position: relative;
 }
 
 .modal .container {
-  padding: 52px 32px 36px;
+	padding: 52px 32px 36px;
 }
 
 .modal-close {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  width: 30px;
-  height: 30px;
-  background-color: transparent;
-  border: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	width: 30px;
+	height: 30px;
+	background-color: transparent;
+	border: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .modal-close-pic {
-  stroke: #202321;
+	stroke: #202321;
 }
 
 .modal-title {
-  font-weight: 400;
-  font-size: 24px;
-  text-align: center;
-  color: #1b1d1b;
-  margin: 0 auto 20px;
+	font-weight: 400;
+	font-size: 24px;
+	text-align: center;
+	color: #1b1d1b;
+	margin: 0 auto 20px;
 }
 
 .modal-text {
-  font-size: 14px;
-  text-align: center;
-  color: #202321;
-  margin: 0 auto 24px;
-  width: 281px;
+	font-size: 14px;
+	text-align: center;
+	color: #202321;
+	margin: 0 auto 24px;
+	width: 281px;
 }
 
 .modal-form {
-  display: flex;
-  flex-direction: column;
-  width: 315px;
+	display: flex;
+	flex-direction: column;
+	width: 315px;
 }
 
 .modal-form-set {
-  margin-bottom: 24px;
+	margin-bottom: 24px;
 }
 
 .modal-form-input {
-  border: none;
-  border-bottom: 1px solid #a3a5a3;
-  background-color: transparent;
-  margin-bottom: 20px;
-  height: 26px;
-  padding: 0 0 8px 5px;
+	border: none;
+	border-bottom: 1px solid #a3a5a3;
+	background-color: transparent;
+	margin-bottom: 20px;
+	height: 26px;
+	padding: 0 0 8px 5px;
 }
 
 .modal-form-label {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  color: #1b1d1b;
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	color: #1b1d1b;
 }
 
 .modal-form-label-span {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  border: 1px solid #202321;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 24px;
+	height: 24px;
+	border: 1px solid #202321;
 }
 
 .modal-form-label-span-pic {
-  fill: transparent;
-  stroke: transparent;
+	fill: transparent;
+	stroke: transparent;
 }
 
-.modal-form-label-checkbox:checked
-  + .modal-form-label-span
-  > .modal-form-label-span-pic {
-  stroke: #000;
+.modal-form-label-checkbox:checked + .modal-form-label-span > .modal-form-label-span-pic {
+	stroke: #000;
 }
 
 .modal-form-submit {
-  width: 311px;
-  height: 52px;
-  background-color: #5b86a1;
-  border: none;
-  font-weight: 500;
-  color: #f7fbfb;
-  transition: background-color 250ms, color 250ms;
+	width: 311px;
+	height: 52px;
+	background-color: #5b86a1;
+	border: none;
+	font-weight: 500;
+	color: #f7fbfb;
+	transition: background-color 250ms, color 250ms;
 }
 
 .modal-form-username::placeholder {
-  color: #202321;
+	color: #202321;
 }
 
 .modal-form-label:not(:last-child) {
-  margin-bottom: 24px;
+	margin-bottom: 24px;
 }
 
 .modal-form-submit:active {
-  background-color: #f7fbfb;
-  color: #1b1d1b;
+	background-color: #f7fbfb;
+	color: #1b1d1b;
 }
