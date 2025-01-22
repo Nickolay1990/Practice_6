@@ -233,6 +233,113 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 });
 
+// swap upcoming days carpathians
+
+document.addEventListener('DOMContentLoaded', () => {
+	const modalItems = document.querySelectorAll('#upcoming-modal-carpathians .upcoming-modal-list-item');
+	const first_card = document.querySelector('#first-carpathians');
+	const second_card = document.querySelector('#second-carpathians');
+	const third_card = document.querySelector('#third-carpathians');
+	const fourd_card = document.querySelector('#fourd-carpathians');
+	const fived_card = document.querySelector('#fived-carpathians');
+	const sixed_card = document.querySelector('#sixed-carpathians');
+	const sevened_card = document.querySelector('#sevened-carpathians');
+
+	modalItems.forEach(item => {
+		let startX = 0;
+
+		item.addEventListener('touchstart', event => {
+			startX = event.touches[0].clientX;
+		});
+
+		item.addEventListener('touchend', event => {
+			const endX = event.changedTouches[0].clientX;
+			const diffX = endX - startX;
+			const selectedCard = document.querySelector('#upcoming-modal-carpathians .selected-card-modal-days');
+
+			if (Math.abs(diffX) > 50) {
+				if (diffX > 0) {
+					if (selectedCard == second_card) {
+						first_card.classList.remove('left-position');
+						first_card.classList.add('selected-card-modal-days');
+
+						second_card.classList.remove('selected-card-modal-days');
+						second_card.classList.add('right-position');
+					} else if (selectedCard == third_card) {
+						second_card.classList.remove('left-position');
+						second_card.classList.add('selected-card-modal-days');
+
+						third_card.classList.remove('selected-card-modal-days');
+						third_card.classList.add('right-position');
+					} else if (selectedCard == fourd_card) {
+						third_card.classList.remove('left-position');
+						third_card.classList.add('selected-card-modal-days');
+
+						fourd_card.classList.remove('selected-card-modal-days');
+						fourd_card.classList.add('right-position');
+					} else if (selectedCard == fived_card) {
+						fourd_card.classList.remove('left-position');
+						fourd_card.classList.add('selected-card-modal-days');
+
+						fived_card.classList.remove('selected-card-modal-days');
+						fived_card.classList.add('right-position');
+					} else if (selectedCard == sixed_card) {
+						fived_card.classList.remove('left-position');
+						fived_card.classList.add('selected-card-modal-days');
+
+						sixed_card.classList.remove('selected-card-modal-days');
+						sixed_card.classList.add('right-position');
+					} else if (selectedCard == sevened_card) {
+						sixed_card.classList.remove('left-position');
+						sixed_card.classList.add('selected-card-modal-days');
+
+						sevened_card.classList.remove('selected-card-modal-days');
+						sevened_card.classList.add('right-position');
+					}
+				} else {
+					if (selectedCard == first_card) {
+						first_card.classList.remove('selected-card-modal-days');
+						first_card.classList.add('left-position');
+
+						second_card.classList.remove('right-position');
+						second_card.classList.add('selected-card-modal-days');
+					} else if (selectedCard == second_card) {
+						second_card.classList.remove('selected-card-modal-days');
+						second_card.classList.add('left-position');
+
+						third_card.classList.remove('right-position');
+						third_card.classList.add('selected-card-modal-days');
+					} else if (selectedCard == third_card) {
+						third_card.classList.remove('selected-card-modal-days');
+						third_card.classList.add('left-position');
+
+						fourd_card.classList.remove('right-position');
+						fourd_card.classList.add('selected-card-modal-days');
+					} else if (selectedCard == fourd_card) {
+						fourd_card.classList.remove('selected-card-modal-days');
+						fourd_card.classList.add('left-position');
+
+						fived_card.classList.remove('right-position');
+						fived_card.classList.add('selected-card-modal-days');
+					} else if (selectedCard == fived_card) {
+						fived_card.classList.remove('selected-card-modal-days');
+						fived_card.classList.add('left-position');
+
+						sixed_card.classList.remove('right-position');
+						sixed_card.classList.add('selected-card-modal-days');
+					} else if (selectedCard == sixed_card) {
+						sixed_card.classList.remove('selected-card-modal-days');
+						sixed_card.classList.add('left-position');
+
+						sevened_card.classList.remove('right-position');
+						sevened_card.classList.add('selected-card-modal-days');
+					}
+				}
+			}
+		});
+	});
+});
+
 // open upcoming days hoverla
 
 document.querySelector('#book-hoverla').addEventListener('click', function () {
@@ -247,6 +354,13 @@ document.querySelector('#book-bukovel').addEventListener('click', function () {
 	modal_bukovel.classList.add('is-open');
 });
 
+// open upcoming days carpathians
+
+document.querySelector('#book-carpathians').addEventListener('click', function () {
+	const modal_carpathians = document.querySelector('#upcoming-modal-carpathians');
+	modal_carpathians.classList.add('is-open');
+});
+
 // close upcoming days hoverla
 
 document.querySelector('#upcoming-modal-closebtn-hoverla').addEventListener('click', function () {
@@ -259,6 +373,13 @@ document.querySelector('#upcoming-modal-closebtn-hoverla').addEventListener('cli
 document.querySelector('#upcoming-modal-closebtn-bukovel').addEventListener('click', function () {
 	const modal_bukovel = document.querySelector('#upcoming-modal-bukovel');
 	modal_bukovel.classList.remove('is-open');
+});
+
+// close upcoming days carpathians
+
+document.querySelector('#upcoming-modal-closebtn-carpathians').addEventListener('click', function () {
+	const modal_carpathians = document.querySelector('#upcoming-modal-carpathians');
+	modal_carpathians.classList.remove('is-open');
 });
 
 // book from upcoming
