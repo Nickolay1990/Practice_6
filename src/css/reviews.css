@@ -1,0 +1,80 @@
+.reviews {
+	padding: 26px 0;
+}
+
+.reviews-title {
+	font-weight: 400;
+	font-size: 32px;
+	text-align: center;
+	color: #1b1d1b;
+	margin-bottom: 28px;
+}
+
+.reviews-card {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	border: 1px solid #5b86a1;
+	min-height: 452px;
+}
+
+.reviews-card:not(:last-child) {
+	margin-bottom: 32px;
+}
+
+.reviews-card-photo {
+	position: absolute;
+	top: 84px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 100px;
+	height: 100px;
+}
+
+.reviews-card-sunset {
+	height: 134px;
+	background-image: url('../img/reviews/rewiews-sunset-first.jpg');
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 767px) and (min-resolution: 192dpi) {
+	.reviews-card-sunset {
+		background-image: url('../img/reviews/rewiews-sunset-first@2x.jpg');
+	}
+}
+
+.reviews-card-review {
+	padding: 70px 35px 48px;
+}
+
+.reviews-card-review-name {
+	font-weight: 600;
+	font-size: 20px;
+	text-align: center;
+	color: #5b86a1;
+	margin-bottom: 16px;
+}
+
+.reviews-card-review-text {
+	color: #202321;
+	line-height: 1.25;
+}
+
+.reviews-card-review-button {
+	width: 32px;
+	height: 32px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: transparent;
+	border: none;
+	position: absolute;
+	bottom: 12px;
+	right: 12px;
+}
+
+.reviews-card-review-button-back {
+	fill: #5b86a1;
+}
