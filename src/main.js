@@ -390,3 +390,15 @@ document.querySelectorAll('.upcoming-modal-bookbtn').forEach(button => {
 		backdrop.classList.add('is-open');
 	});
 });
+
+document.querySelectorAll('.reviews-card-review-button').forEach(button => {
+	button.addEventListener('click', function () {
+		let backblock;
+		if (this.classList.contains('to-front')) {
+			backblock = this.parentElement.parentElement;
+		} else {
+			backblock = this.parentElement.parentElement.parentElement;
+		}
+		backblock.classList.toggle('reviews-go-to-back');
+	});
+});
