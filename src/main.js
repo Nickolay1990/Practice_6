@@ -402,3 +402,62 @@ document.querySelectorAll('.reviews-card-review-button').forEach(button => {
 		backblock.classList.toggle('reviews-go-to-back');
 	});
 });
+
+// swap gallery right
+
+document.querySelector('#galery-button-right').addEventListener('click', function () {
+	this.disabled = true;
+	const element = document.querySelector('.galery-list');
+	const style = window.getComputedStyle(element);
+	const matrix = style.transform;
+	const step = -300;
+	const rightButton = document.querySelector('#galery-right-button-scroll');
+	const leftButton = document.querySelector('#galery-left-button-scroll');
+
+	if (matrix === 'none') {
+		element.style.transform = `translate(-285px)`;
+		leftButton.classList.remove('upcoming-list-item-button-pic-disabled');
+		leftButton.classList.add('upcoming-list-item-button-pic');
+	} else {
+		const matrixData = matrix.match(/matrix\((.+)\)/)[1].split(', ');
+		const newTranlate = Number(matrixData[4]) + step;
+		if (Number(matrixData[4]) >= -1785) {
+			element.style.transform = `translate(${newTranlate}px)`;
+			if (Number(matrixData[4]) === -1785) {
+				rightButton.classList.add('upcoming-list-item-button-pic-disabled');
+			}
+		}
+	}
+	setTimeout(() => {
+		this.disabled = false;
+	}, 300);
+});
+
+// swap gallery left
+
+document.querySelector('#galery-button-left').addEventListener('click', function () {
+	this.disabled = true;
+	const element = document.querySelector('.galery-list');
+	const style = window.getComputedStyle(element);
+	const matrix = style.transform;
+	const step = 300;
+	const leftButton = document.querySelector('#galery-left-button-scroll');
+	const rightButton = document.querySelector('#galery-right-button-scroll');
+
+	if (matrix !== 'none') {
+		const matrixData = matrix.match(/matrix\((.+)\)/)[1].split(', ');
+		const newTranlate = Number(matrixData[4]) + step;
+		if (Number(matrixData[4]) === -285) {
+			element.style.transform = 'none';
+			leftButton.classList.add('upcoming-list-item-button-pic-disabled');
+		} else if (Number(matrixData[4]) === -2085) {
+			rightButton.classList.remove('upcoming-list-item-button-pic-disabled');
+			element.style.transform = `translate(${newTranlate}px)`;
+		} else {
+			element.style.transform = `translate(${newTranlate}px)`;
+		}
+	}
+	setTimeout(() => {
+		this.disabled = false;
+	}, 300);
+});
