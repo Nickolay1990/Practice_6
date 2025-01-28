@@ -116,6 +116,7 @@
 	font-weight: 500;
 	color: #f7fbfb;
 	transition: background-color 250ms, color 250ms;
+	margin: 0 auto;
 }
 
 .modal-form-username::placeholder {
