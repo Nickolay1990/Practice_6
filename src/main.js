@@ -11,7 +11,6 @@ document.querySelector('#button-menu').addEventListener('click', function () {
 	menu.classList.add('open-menu');
 	button_menu.classList.add('visually-hidden');
 	buton_close.classList.remove('visually-hidden');
-
 	title.classList.add('visually-hidden');
 	text.classList.add('visually-hidden');
 	book.classList.add('visually-hidden');
@@ -461,3 +460,10 @@ document.querySelector('#galery-button-left').addEventListener('click', function
 		this.disabled = false;
 	}, 300);
 });
+function checkStorage(storage, item) {
+	if (storage.includes(item.toLowerCase())) {
+		return `${item} is available to order!`;
+	} else {
+		return 'Sorry! We are out of stock!';
+	}
+}

@@ -8,6 +8,7 @@
 @import url('./reviews.css');
 @import url('./galery.css');
 @import url('./question.css');
+@import url('./footer.css');
 
 @font-face {
 	font-family: 'Gilroy', Arial, sans-serif;
@@ -47,6 +48,7 @@ button {
 
 a {
 	text-decoration: none;
+	color: currentColor;
 }
 
 fieldset {
