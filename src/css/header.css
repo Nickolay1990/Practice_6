@@ -1,16 +1,22 @@
 .pageheader {
-	height: 40px;
-	width: 100%;
 	position: absolute;
 	top: 20px;
 	left: 50%;
 	transform: translateX(-50%);
 	z-index: 998;
+	background-color: blueviolet;
+}
+
+@media screen and (min-width: 768px) {
+	.pageheader {
+		top: 24px;
+	}
 }
 
 .header-topline {
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 }
 
 .header-topline-logo {
@@ -20,9 +26,22 @@
 	width: 40px;
 	height: 40px;
 }
+@media screen and (min-width: 768px) {
+	.header-topline-logo {
+		width: 60px;
+		height: 60px;
+	}
+}
 
 .header-topline-logo-pic {
 	fill: #f7fbfb;
+}
+
+@media screen and (min-width: 768px) {
+	.header-topline-logo-pic {
+		width: 56px;
+		height: 58px;
+	}
 }
 
 .pageheader-topline-button {
@@ -49,8 +68,4 @@
 	width: 40px;
 	height: 40px;
 	z-index: 999;
-}
-
-.mobile-menu-close-pic {
-	stroke: #f7fbfb;
 }

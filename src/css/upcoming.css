@@ -1,126 +1,117 @@
 .upcoming {
-  padding: 26px 0;
+	padding: 26px 0;
 }
 
 .upcoming-title {
-  font-weight: 400;
-  font-size: 32px;
-  text-align: center;
-  color: #1b1d1b;
-  margin-bottom: 28px;
+	font-weight: 400;
+	font-size: 32px;
+	text-align: center;
+	color: #1b1d1b;
+	margin-bottom: 28px;
 }
 
 .upcoming-block {
-  border-right: 1px solid #5b86a1;
-  border-bottom: 1px solid #5b86a1;
-  border-left: 1px solid #5b86a1;
-  padding: 28px 20px;
-  margin-bottom: 24px;
+	border-right: 1px solid #5b86a1;
+	border-bottom: 1px solid #5b86a1;
+	border-left: 1px solid #5b86a1;
+	padding: 28px 20px;
+	margin-bottom: 24px;
 }
 
 .upcoming-block-title {
-  font-weight: 600;
-  font-size: 20px;
-  color: #1b1d1b;
-  margin-bottom: 16px;
+	font-weight: 600;
+	font-size: 20px;
+	color: #1b1d1b;
+	margin-bottom: 16px;
 }
 
 .upcoming-block-text {
-  font-weight: 600;
-  color: #202321;
-  margin-bottom: 20px;
+	font-weight: 600;
+	color: #202321;
+	margin-bottom: 20px;
 }
 
 .upcoming-block-button {
-  width: 271px;
-  height: 53px;
-  background-color: #5b86a1;
-  border: none;
-  font-weight: 500;
-  text-transform: uppercase;
-  color: #f7fbfb;
-  transition: background-color 250ms, color 250ms;
-}
-
-.upcoming-block-button:active {
-  background-color: #f7fbfb;
-  color: #1b1d1b;
+	width: 271px;
+	height: 53px;
+	background-color: #5b86a1;
+	border: none;
+	font-weight: 500;
+	text-transform: uppercase;
+	color: #f7fbfb;
+	transition: background-color 250ms, color 250ms;
 }
 
 .upcoming-list {
-  display: flex;
-  justify-content: space-between;
-  margin: 0 auto;
-  width: 96px;
+	display: flex;
+	justify-content: space-between;
+	margin: 0 auto;
+	width: 96px;
 }
 
 .upcoming-list-item {
-  width: 28px;
-  height: 28px;
+	width: 28px;
+	height: 28px;
 }
 
 .upcoming-list-item-button {
-  width: 100%;
-  height: 100%;
-  border: none;
-  background-color: transparent;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	width: 100%;
+	height: 100%;
+	border: none;
+	background-color: transparent;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .upcoming-list-item-button-pic {
-  transition: fill 250ms;
-  fill: #5b86a1;
+	transition: fill 250ms;
+	fill: #5b86a1;
 }
 
 .upcoming-list-item-button-pic-disabled {
-  fill: #a3a5a3;
-}
-
-.upcoming-list-item-button:active .upcoming-list-item-button-pic {
-  fill: #5b86a1;
+	fill: #a3a5a3;
 }
 
 .upcoming-tours-list {
-  position: relative;
-  overflow: hidden;
+	position: relative;
+	overflow: hidden;
 }
 
 .upcoming-tours-list-item {
-  width: 100%;
-  transition: transform 250ms;
+	width: 100%;
+	transition: transform 250ms;
 }
 
 .selected-card {
-  transform: translateX(0);
-  position: static;
+	transform: translateX(0);
+	position: static;
 }
 
 .first-position {
-  transform: translateX(-200%);
-  position: absolute;
-  top: 0;
-  left: 0;
+	transform: translateX(-200%);
+	position: absolute;
+	top: 0;
+	left: 0;
 }
 
 .second-position {
-  transform: translateX(-100%);
-  position: absolute;
-  top: 0;
-  left: 0;
+	transform: translateX(-100%);
+	position: absolute;
+	top: 0;
+	left: 0;
 }
 
 .fourd-position {
-  transform: translateX(100%);
-  position: absolute;
-  top: 0;
-  left: 0;
+	transform: translateX(100%);
+	position: absolute;
+	top: 0;
+	left: 0;
 }
 
 .fived-position {
-  transform: translateX(200%);
-  position: absolute;
-  top: 0;
-  left: 0;
+	transform: translateX(200%);
+	position: absolute;
+	top: 0;
+	left: 0;
 }

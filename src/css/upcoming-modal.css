@@ -165,11 +165,6 @@
 	transition: background-color 250ms, color 250ms;
 }
 
-.upcoming-modal-bookbtn:active {
-	background-color: #f7fbfb;
-	color: #1b1d1b;
-}
-
 .upcoming-modal-list-item-block-days-low {
 	font-weight: 500;
 	color: #000;

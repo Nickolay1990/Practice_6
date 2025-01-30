@@ -69,14 +69,3 @@
 	color: #a3a5a3;
 	text-align: center;
 }
-
-.pagefooter-socials-item-link:active .pagefooter-socials-item-link-pic {
-	fill: #a3a5a3;
-}
-
-.pagefooter-address-list-item-link:active .pagefooter-address-list-item-link-pic {
-	fill: #a3a5a3;
-}
-.pagefooter-address-list-item-link:active .pagefooter-address-list-item-link-text {
-	color: #a3a5a3;
-}
