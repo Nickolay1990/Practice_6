@@ -4,7 +4,7 @@
 	left: 50%;
 	transform: translateX(-50%);
 	z-index: 998;
-	background-color: blueviolet;
+	width: 100%;
 }
 
 @media screen and (min-width: 768px) {
