@@ -7,6 +7,8 @@ document.querySelector('#button-menu').addEventListener('click', function () {
 	const text = document.querySelector('#pageheader-text');
 	const book = document.querySelector('#pageheader-book');
 	const buton_close = document.querySelector('#mobile-menu-close');
+	const darkWindow = document.querySelector('#dark-window');
+	const header = document.querySelector('#pageheader');
 
 	menu.classList.add('open-menu');
 	button_menu.classList.add('visually-hidden');
@@ -14,6 +16,8 @@ document.querySelector('#button-menu').addEventListener('click', function () {
 	title.classList.add('visually-hidden');
 	text.classList.add('visually-hidden');
 	book.classList.add('visually-hidden');
+	darkWindow.classList.toggle('dark-window');
+	header.classList.toggle('padding-for-tablet-menu');
 });
 
 // close mobile menu
@@ -25,6 +29,8 @@ document.querySelector('#mobile-menu-close').addEventListener('click', function 
 	const text = document.querySelector('#pageheader-text');
 	const book = document.querySelector('#pageheader-book');
 	const button_close = document.querySelector('#mobile-menu-close');
+	const darkWindow = document.querySelector('#dark-window');
+	const header = document.querySelector('#pageheader');
 
 	menu.classList.remove('open-menu');
 	button_close.classList.add('visually-hidden');
@@ -32,6 +38,8 @@ document.querySelector('#mobile-menu-close').addEventListener('click', function 
 	title.classList.remove('visually-hidden');
 	text.classList.remove('visually-hidden');
 	book.classList.remove('visually-hidden');
+	darkWindow.classList.toggle('dark-window');
+	header.classList.toggle('padding-for-tablet-menu');
 });
 
 // close modal window
