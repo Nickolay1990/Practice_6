@@ -1,15 +1,38 @@
 .about {
-  padding: 33px 0 26px;
+	padding: 33px 0 26px;
+}
+
+@media screen and (min-width: 768px) {
+	.about {
+		padding: 80px 0 40px;
+	}
 }
 
 .about-title {
-  font-weight: 400;
-  font-size: 32px;
-  color: #1b1d1b;
-  text-align: center;
-  margin-bottom: 28px;
+	font-weight: 400;
+	font-size: 32px;
+	color: #1b1d1b;
+	text-align: center;
+	margin-bottom: 28px;
+}
+
+@media screen and (min-width: 768px) {
+	.about-title {
+		margin-bottom: 40px;
+		font-size: 52px;
+	}
 }
 
 .about-text {
-  color: #202321;
+	color: #202321;
+}
+
+@media screen and (min-width: 768px) {
+	.about-text {
+		font-size: 20px;
+	}
+}
+
+.about-text:not(:last-child) {
+	margin-bottom: 10px;
 }
