@@ -6,6 +6,9 @@
 	.upcoming {
 		padding: 40px 0;
 	}
+	.upcoming .container {
+		overflow: hidden;
+	}
 }
 
 .upcoming-title {
@@ -35,6 +38,8 @@
 		gap: 20px;
 		flex-wrap: nowrap;
 		margin-bottom: 32px;
+		overflow: visible;
+		transition: transform 250ms;
 	}
 }
 
@@ -91,7 +96,7 @@
 }
 
 .upcoming-block-button {
-	width: 271px;
+	width: 100%;
 	height: 53px;
 	background-color: #5b86a1;
 	border: none;
