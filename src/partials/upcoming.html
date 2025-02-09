@@ -3,12 +3,18 @@
 		<h2 class="upcoming-title">Upcoming tours</h2>
 		<ul class="upcoming-tours-list">
 			<li class="upcoming-tours-list-item selected-card" id="first-card">
-				<img
-					class="upcoming-img"
-					src="/img/upcoming/hoverla.jpg"
-					srcset="/img/upcoming/hoverla.jpg 1x, /img/upcoming/hoverla@2x.jpg 2x"
-					alt="hoverla nature"
-				/>
+				<picture>
+					<source
+						media="(min-width: 768px)"
+						srcset="/img/upcoming/hoverla-tab.jpg 1x, /img/upcoming/hoverla-tab@2x.jpg 2x"
+					/>
+					<source media="(max-width: 767px)" srcset="/img/upcoming/hoverla.jpg 1x, /img/upcoming/hoverla@2x.jpg 2x" />
+					<img
+						src="/img/upcoming/hoverla.jpg"
+						srcset="/img/upcoming/hoverla.jpg 1x, /img/upcoming/hoverla@2x.jpg 2x"
+						alt="hoverla nature"
+					/>
+				</picture>
 				<div class="upcoming-block">
 					<h3 class="upcoming-block-title">Ascent to Hoverla</h3>
 					<p class="upcoming-block-text">From UAH 4,499/person</p>
@@ -17,12 +23,19 @@
 			</li>
 
 			<li class="upcoming-tours-list-item right-position" id="second-card">
-				<img
-					class="upcoming-img"
-					src="/img/upcoming/bukovel.jpg"
-					srcset="/img/upcoming/bukovel.jpg 1x, /img/upcoming/bukovel@2x.jpg 2x"
-					alt="bukovel nature"
-				/>
+				<picture>
+					<source
+						media="(min-width: 768px)"
+						srcset="/img/upcoming/bukovel-tab.jpg 1x, /img/upcoming/bukovel-tab@2x.jpg 2x"
+					/>
+					<source media="(max-width: 767px)" srcset="/img/upcoming/bukovel.jpg 1x, /img/upcoming/bukovel@2x.jpg 2x" />
+					<img
+						class="upcoming-img"
+						src="/img/upcoming/bukovel.jpg"
+						srcset="/img/upcoming/bukovel.jpg 1x, /img/upcoming/bukovel@2x.jpg 2x"
+						alt="bukovel nature"
+					/>
+				</picture>
 				<div class="upcoming-block">
 					<h3 class="upcoming-block-title">Ski tour to Bukovel</h3>
 					<p class="upcoming-block-text">From UAH 7,499/person</p>
@@ -31,12 +44,22 @@
 			</li>
 
 			<li class="upcoming-tours-list-item right-position" id="third-card">
-				<img
-					class="upcoming-img"
-					src="/img/upcoming/carpati.jpg"
-					srcset="/img/upcoming/carpati.jpg 1x, /img/upcoming/carpati@2x.jpg 2x"
-					alt="carpati nature"
-				/>
+				<picture>
+					<source
+						media="(min-width: 768px)"
+						srcset="/img/upcoming/carpathians-tab.jpg 1x, /img/upcoming/carpathians-tab@2x.jpg 2x"
+					/>
+					<source
+						media="(max-width: 767px)"
+						srcset="/img/upcoming/carpathians.jpg 1x, /img/upcoming/carpathians@2x.jpg 2x"
+					/>
+					<img
+						class="upcoming-img"
+						src="/img/upcoming/carpati.jpg"
+						srcset="/img/upcoming/carpathians.jpg 1x, /img/upcoming/carpathians@2x.jpg 2x"
+						alt="carpati nature"
+					/>
+				</picture>
 				<div class="upcoming-block">
 					<h3 class="upcoming-block-title">Week in Carpathians</h3>
 					<p class="upcoming-block-text">From UAH 9,999/person</p>

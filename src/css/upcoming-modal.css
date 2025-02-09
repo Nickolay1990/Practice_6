@@ -177,20 +177,6 @@
 	position: static;
 }
 
-.left-position {
-	transform: translateX(-100%);
-	position: absolute;
-	top: 0;
-	left: 0;
-}
-
-.right-position {
-	transform: translateX(100%);
-	position: absolute;
-	top: 0;
-	left: 0;
-}
-
 /* bukovel */
 
 .first-bukovel {
