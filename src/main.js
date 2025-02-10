@@ -153,8 +153,6 @@ const mobileBreakpoint = window.matchMedia('(max-width: 767px)');
 
 mobileBreakpoint.addEventListener('change', updateDisplay);
 
-updateLayout(mobileBreakpoint);
-
 function updateDisplay(event) {
 	const list = document.querySelector('#upcoming-tours-list');
 	const fill_button_right = document.querySelector('#right-button-scroll');
