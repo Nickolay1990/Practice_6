@@ -42,18 +42,18 @@ document.querySelector('#mobile-menu-close').addEventListener('click', function 
 	header.classList.toggle('padding-for-tablet-menu');
 });
 
-// close modal window
-
-document.querySelector('#modal-close').addEventListener('click', function () {
-	const modal = document.querySelector('#backdrop');
-	modal.classList.remove('is-open');
-});
-
 // open modal window
 
 document.querySelector('#pageheader-book').addEventListener('click', function () {
 	const modal = document.querySelector('#backdrop');
 	modal.classList.add('is-open');
+});
+
+// close modal window
+
+document.querySelector('#modal-close').addEventListener('click', function () {
+	const modal = document.querySelector('#backdrop');
+	modal.classList.remove('is-open');
 });
 
 // swap upcoming tours right

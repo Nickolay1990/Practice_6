@@ -60,7 +60,6 @@
 	height: 100%;
 	width: 100%;
 	padding-top: 56px;
-	/* position: relative; */
 	transition: transform 250ms;
 }
 
@@ -285,14 +284,11 @@
 	align-self: flex-end;
 	line-height: 2;
 }
-@media screen and (min-width: 768px) {
-}
 
-.selected-card-modal-days {
-	transform: translateX(0);
-	position: static;
-}
 @media screen and (min-width: 768px) {
+	.upcoming-modal-list-item-block-days-low {
+		display: none;
+	}
 }
 
 /* bukovel */
@@ -502,7 +498,7 @@
 
 /* positions */
 
-.selected-card {
+.selected-card-modal-days {
 	transform: translateX(0);
 	position: static;
 }
@@ -514,23 +510,9 @@
 	left: 0;
 }
 
-@media screen and (min-width: 768px) {
-	.left-position {
-		position: static;
-		transform: translateX(0);
-	}
-}
-
 .right-position {
 	transform: translateX(100%);
 	position: absolute;
 	top: 0;
 	left: 0;
-}
-
-@media screen and (min-width: 768px) {
-	.right-position {
-		position: static;
-		transform: translateX(0);
-	}
 }
