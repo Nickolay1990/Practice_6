@@ -355,3 +355,38 @@
 #upcoming-modal-carpathians .upcoming-modal-list-item-block-options {
 	min-width: 285px;
 }
+
+/* positions */
+
+.selected-card {
+	transform: translateX(0);
+	position: static;
+}
+
+.left-position {
+	transform: translateX(-100%);
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+@media screen and (min-width: 768px) {
+	.left-position {
+		position: static;
+		transform: translateX(0);
+	}
+}
+
+.right-position {
+	transform: translateX(100%);
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+@media screen and (min-width: 768px) {
+	.right-position {
+		position: static;
+		transform: translateX(0);
+	}
+}

@@ -2,12 +2,13 @@
 	padding: 26px 0;
 }
 
+.upcoming .container {
+	overflow: hidden;
+}
+
 @media screen and (min-width: 768px) {
 	.upcoming {
 		padding: 40px 0;
-	}
-	.upcoming .container {
-		overflow: hidden;
 	}
 }
 
@@ -27,31 +28,29 @@
 }
 
 .upcoming-tours-list {
-	position: relative;
-	overflow: hidden;
 	margin-bottom: 24px;
+	display: flex;
+	gap: 15px;
+	flex-wrap: nowrap;
+	transition: transform 250ms;
 }
 
 @media screen and (min-width: 768px) {
 	.upcoming-tours-list {
-		display: flex;
 		gap: 20px;
-		flex-wrap: nowrap;
 		margin-bottom: 32px;
-		overflow: visible;
-		transition: transform 250ms;
 	}
 }
 
 .upcoming-tours-list-item {
-	width: 100%;
+	flex-basis: 100%;
 	transition: transform 250ms;
+	flex-shrink: 0;
 }
 
 @media screen and (min-width: 768px) {
 	.upcoming-tours-list-item {
 		flex-basis: 354px;
-		flex-shrink: 0;
 	}
 }
 
@@ -169,38 +168,5 @@
 	.upcoming-list-item-button-pic-disabled {
 		width: 12px;
 		height: 21px;
-	}
-}
-
-.selected-card {
-	transform: translateX(0);
-	position: static;
-}
-
-.left-position {
-	transform: translateX(-100%);
-	position: absolute;
-	top: 0;
-	left: 0;
-}
-
-@media screen and (min-width: 768px) {
-	.left-position {
-		position: static;
-		transform: translateX(0);
-	}
-}
-
-.right-position {
-	transform: translateX(100%);
-	position: absolute;
-	top: 0;
-	left: 0;
-}
-
-@media screen and (min-width: 768px) {
-	.right-position {
-		position: static;
-		transform: translateX(0);
 	}
 }
