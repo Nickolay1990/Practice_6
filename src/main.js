@@ -60,30 +60,23 @@ document.querySelector('#pageheader-book').addEventListener('click', function ()
 
 document.querySelector('#upcoming-button-right').addEventListener('click', function () {
 	if (window.innerWidth < 768) {
-		const first = document.querySelector('#first-card');
-		const second = document.querySelector('#second-card');
-		const third = document.querySelector('#third-card');
-		const selected = document.querySelector('.selected-card');
+		const list = document.querySelector('#upcoming-tours-list');
+		const style = window.getComputedStyle(list);
+		const matrix = style.transform;
 		const fill_button_right = document.querySelector('#right-button-scroll');
 		const fill_button_left = document.querySelector('#left-button-scroll');
-		if (first == selected) {
-			first.classList.remove('selected-card');
-			first.classList.add('left-position');
 
-			second.classList.remove('right-position');
-			second.classList.add('selected-card');
-
+		if (matrix === 'none') {
+			list.style.transform = 'translate(-326px)';
 			fill_button_left.classList.remove('upcoming-list-item-button-pic-disabled');
 			fill_button_left.classList.add('upcoming-list-item-button-pic');
-		} else if (second == selected) {
-			second.classList.remove('selected-card');
-			second.classList.add('left-position');
-
-			third.classList.remove('right-position');
-			third.classList.add('selected-card');
-
-			fill_button_right.classList.remove('upcoming-list-item-button-pic');
-			fill_button_right.classList.add('upcoming-list-item-button-pic-disabled');
+		} else {
+			const translate = Number(matrix.split(',')[4]);
+			if (translate === -326) {
+				list.style.transform = 'translate(-652px)';
+				fill_button_right.classList.remove('upcoming-list-item-button-pic');
+				fill_button_right.classList.add('upcoming-list-item-button-pic-disabled');
+			}
 		}
 	} else if (window.innerWidth >= 768) {
 		const list = document.querySelector('#upcoming-tours-list');
@@ -106,32 +99,25 @@ document.querySelector('#upcoming-button-right').addEventListener('click', funct
 
 document.querySelector('#upcoming-button-left').addEventListener('click', function () {
 	if (window.innerWidth < 768) {
-		const first = document.querySelector('#first-card');
-		const second = document.querySelector('#second-card');
-		const third = document.querySelector('#third-card');
-		const selected = document.querySelector('.selected-card');
+		const list = document.querySelector('#upcoming-tours-list');
+		const style = window.getComputedStyle(list);
+		const matrix = style.transform;
 		const fill_button_right = document.querySelector('#right-button-scroll');
 		const fill_button_left = document.querySelector('#left-button-scroll');
-		if (second == selected) {
-			first.classList.remove('left-position');
-			first.classList.add('selected-card');
 
-			second.classList.remove('selected-card');
-			second.classList.add('right-position');
-
-			fill_button_left.classList.remove('upcoming-list-item-button-pic');
-			fill_button_left.classList.add('upcoming-list-item-button-pic-disabled');
-		} else if (third == selected) {
-			second.classList.remove('left-position');
-			second.classList.add('selected-card');
-
-			third.classList.remove('selected-card');
-			third.classList.add('right-position');
-
-			fill_button_right.classList.remove('upcoming-list-item-button-pic-disabled');
-			fill_button_right.classList.add('upcoming-list-item-button-pic');
+		if (matrix !== 'none') {
+			const translate = Number(matrix.split(',')[4]);
+			if (translate === -652) {
+				list.style.transform = 'translate(-326px)';
+				fill_button_right.classList.remove('upcoming-list-item-button-pic-disabled');
+				fill_button_right.classList.add('upcoming-list-item-button-pic');
+			} else {
+				list.style.transform = 'none';
+				fill_button_left.classList.remove('upcoming-list-item-button-pic');
+				fill_button_left.classList.add('upcoming-list-item-button-pic-disabled');
+			}
 		}
-	} else {
+	} else if (window.innerWidth >= 768) {
 		const list = document.querySelector('#upcoming-tours-list');
 		const style = window.getComputedStyle(list);
 		const matrix = style.transform;
@@ -153,37 +139,15 @@ const mobileBreakpoint = window.matchMedia('(max-width: 767px)');
 
 mobileBreakpoint.addEventListener('change', updateDisplay);
 
-function updateDisplay(event) {
+function updateDisplay() {
 	const list = document.querySelector('#upcoming-tours-list');
 	const fill_button_right = document.querySelector('#right-button-scroll');
 	const fill_button_left = document.querySelector('#left-button-scroll');
-	const first = document.querySelector('#first-card');
-	const second = document.querySelector('#second-card');
-	const third = document.querySelector('#third-card');
-	if (event.matches) {
-		list.style.transform = 'none';
-		first.classList.remove('right-position', 'left-position');
-		first.classList.add('selected-card');
-
-		second.classList.remove('selected-card', 'left-position');
-		second.classList.add('right-position');
-
-		third.classList.remove('selected-card', 'left-position');
-		third.classList.add('right-position');
-
-		fill_button_left.classList.remove('upcoming-list-item-button-pic');
-		fill_button_left.classList.add('upcoming-list-item-button-pic-disabled');
-
-		fill_button_right.classList.remove('upcoming-list-item-button-pic-disabled');
-		fill_button_right.classList.add('upcoming-list-item-button-pic');
-	} else {
-		list.style.transform = 'none';
-		fill_button_left.classList.remove('upcoming-list-item-button-pic');
-		fill_button_left.classList.add('upcoming-list-item-button-pic-disabled');
-
-		fill_button_right.classList.remove('upcoming-list-item-button-pic-disabled');
-		fill_button_right.classList.add('upcoming-list-item-button-pic');
-	}
+	list.style.transform = 'none';
+	fill_button_left.classList.remove('upcoming-list-item-button-pic');
+	fill_button_left.classList.add('upcoming-list-item-button-pic-disabled');
+	fill_button_right.classList.remove('upcoming-list-item-button-pic-disabled');
+	fill_button_right.classList.add('upcoming-list-item-button-pic');
 }
 
 // swap upcoming days hoverla
