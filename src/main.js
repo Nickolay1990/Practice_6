@@ -228,7 +228,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 			if (Math.abs(diffX) > 50) {
 				if (diffX > 0) {
-					console.log('1');
 					if (selectedCard == second_card) {
 						first_card.classList.remove('left-position');
 						first_card.classList.add('selected-card-modal-days');

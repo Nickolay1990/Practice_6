@@ -299,12 +299,22 @@
 	background-size: cover;
 	background-repeat: no-repeat;
 }
-@media screen and (min-width: 768px) {
-}
 
 @media screen and (max-width: 767px) and (min-resolution: 192dpi) {
 	.first-bukovel {
 		background-image: url('/img/upcoming/bukovel-first@2x.jpg');
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.first-bukovel {
+		background-image: url('/img/upcoming/upcoming-modal-tab/first-bukovel-tab.jpg');
+	}
+}
+
+@media screen and (min-width: 768px) and (min-resolution: 192dpi) {
+	.first-bukovel {
+		background-image: url('/img/upcoming/upcoming-modal-tab/first-bukovel-tab@2x.jpg');
 	}
 }
 
@@ -314,12 +324,22 @@
 	background-size: cover;
 	background-repeat: no-repeat;
 }
-@media screen and (min-width: 768px) {
-}
 
 @media screen and (max-width: 767px) and (min-resolution: 192dpi) {
 	.second-bukovel {
 		background-image: url('/img/upcoming/bukovel-second@2x.jpg');
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.second-bukovel {
+		background-image: url('/img/upcoming/upcoming-modal-tab/second-bukovel-tab.jpg');
+	}
+}
+
+@media screen and (min-width: 768px) and (min-resolution: 192dpi) {
+	.second-bukovel {
+		background-image: url('/img/upcoming/upcoming-modal-tab/second-bukovel-tab@2x.jpg');
 	}
 }
 
@@ -329,12 +349,22 @@
 	background-size: cover;
 	background-repeat: no-repeat;
 }
-@media screen and (min-width: 768px) {
-}
 
 @media screen and (max-width: 767px) and (min-resolution: 192dpi) {
 	.third-bukovel {
 		background-image: url('/img/upcoming/bukovel-third@2x.jpg');
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.third-bukovel {
+		background-image: url('/img/upcoming/upcoming-modal-tab/third-bukovel-tab.jpg');
+	}
+}
+
+@media screen and (min-width: 768px) and (min-resolution: 192dpi) {
+	.third-bukovel {
+		background-image: url('/img/upcoming/upcoming-modal-tab/third-bukovel-tab@2x.jpg');
 	}
 }
 
@@ -344,12 +374,22 @@
 	background-size: cover;
 	background-repeat: no-repeat;
 }
-@media screen and (min-width: 768px) {
-}
 
 @media screen and (max-width: 767px) and (min-resolution: 192dpi) {
 	.fourd-bukovel {
 		background-image: url('/img/upcoming/bukovel-fourd@2x.jpg');
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.fourd-bukovel {
+		background-image: url('/img/upcoming/upcoming-modal-tab/fourth-bukovel-tab.jpg');
+	}
+}
+
+@media screen and (min-width: 768px) and (min-resolution: 192dpi) {
+	.fourd-bukovel {
+		background-image: url('/img/upcoming/upcoming-modal-tab/fourth-bukovel-tab@2x.jpg');
 	}
 }
 
@@ -366,7 +406,14 @@
 	height: 48px;
 	width: 300px;
 }
+
 @media screen and (min-width: 768px) {
+	.upcoming-modal-list-item-block-days-bukovel {
+		padding: 0 9px 0 60px;
+		margin-bottom: 16px;
+		width: 377px;
+		font-size: 20px;
+	}
 }
 
 /* carpathians */
