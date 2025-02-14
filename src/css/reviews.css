@@ -2,6 +2,12 @@
 	padding: 26px 0;
 }
 
+@media screen and (min-width: 768px) {
+	.reviews {
+		padding: 40px 0;
+	}
+}
+
 .reviews-title {
 	font-weight: 400;
 	font-size: 32px;
@@ -10,10 +16,35 @@
 	margin-bottom: 28px;
 }
 
+@media screen and (min-width: 768px) {
+	.reviews-title {
+		margin-bottom: 40px;
+		font-size: 52px;
+	}
+}
+
+.reviews-block {
+	display: flex;
+	flex-direction: column;
+	gap: 32px;
+}
+
+@media screen and (min-width: 768px) {
+	.reviews-block {
+		flex-direction: row;
+		gap: 20px;
+	}
+}
+
 .reviews-inner {
-	position: relative;
 	transform-style: preserve-3d;
 	transition: transform 0.6s;
+}
+
+@media screen and (min-width: 768px) {
+	.reviews-inner {
+		width: 354px;
+	}
 }
 
 .reviews-card {
@@ -22,6 +53,102 @@
 	position: relative;
 	outline: 1px solid #5b86a1;
 	backface-visibility: hidden;
+}
+
+.reviews-card-photo {
+	position: absolute;
+	top: 84px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 100px;
+	height: 100px;
+}
+
+.reviews-card-sunset {
+	height: 134px;
+	max-width: 100%;
+	background-image: url('/img/reviews/rewiews-sunset-first.jpg');
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+@media screen and (min-resolution: 192dpi) {
+	.reviews-card-sunset {
+		background-image: url('/img/reviews/rewiews-sunset-first@2x.jpg');
+	}
+}
+
+.reviews-card-review {
+	padding: 74px 35px 48px;
+	min-height: 318px;
+}
+
+@media screen and (min-width: 768px) {
+	.reviews-card-review {
+		padding: 70px 20px 51px;
+		min-height: 370px;
+	}
+}
+
+.reviews-card-review-name {
+	font-weight: 600;
+	font-size: 20px;
+	text-align: center;
+	color: #5b86a1;
+	margin-bottom: 16px;
+}
+
+@media screen and (min-width: 768px) {
+	.reviews-card-review-name {
+		margin-bottom: 24px;
+		font-size: 24px;
+	}
+}
+
+.reviews-card-review-text {
+	color: #202321;
+	line-height: 1.11;
+}
+
+@media screen and (min-width: 768px) {
+	.reviews-card-review-text {
+		line-height: 1.2;
+		font-size: 20px;
+	}
+}
+
+.reviews-card-review-button {
+	width: 32px;
+	height: 32px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: transparent;
+	border: none;
+	position: absolute;
+	bottom: 12px;
+	right: 12px;
+}
+
+@media screen and (min-width: 768px) {
+	.reviews-card-review-button {
+		width: 40px;
+		height: 40px;
+		bottom: 20px;
+		right: 20px;
+	}
+}
+
+.reviews-card-review-button-back {
+	fill: #5b86a1;
+}
+
+@media screen and (min-width: 768px) {
+	.reviews-card-review-button-back {
+		width: 33px;
+		height: 20px;
+	}
 }
 
 .reviews-card-back {
@@ -40,69 +167,6 @@
 	object-fit: cover;
 }
 
-.reviews-inner:not(:last-child) {
-	margin-bottom: 32px;
-}
-
 .reviews-go-to-back {
 	transform: rotateY(180deg);
-}
-
-.reviews-card-photo {
-	position: absolute;
-	top: 84px;
-	left: 50%;
-	transform: translateX(-50%);
-	width: 100px;
-	height: 100px;
-}
-
-.reviews-card-sunset {
-	height: 134px;
-	max-width: 100%;
-	background-image: url('../img/reviews/rewiews-sunset-first.jpg');
-	background-position: center;
-	background-size: cover;
-	background-repeat: no-repeat;
-}
-
-@media screen and (max-width: 767px) and (min-resolution: 192dpi) {
-	.reviews-card-sunset {
-		background-image: url('../img/reviews/rewiews-sunset-first@2x.jpg');
-	}
-}
-
-.reviews-card-review {
-	padding: 70px 35px 48px;
-	min-height: 318px;
-}
-
-.reviews-card-review-name {
-	font-weight: 600;
-	font-size: 20px;
-	text-align: center;
-	color: #5b86a1;
-	margin-bottom: 16px;
-}
-
-.reviews-card-review-text {
-	color: #202321;
-	line-height: 1.25;
-}
-
-.reviews-card-review-button {
-	width: 32px;
-	height: 32px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background: transparent;
-	border: none;
-	position: absolute;
-	bottom: 12px;
-	right: 12px;
-}
-
-.reviews-card-review-button-back {
-	fill: #5b86a1;
 }
