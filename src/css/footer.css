@@ -1,7 +1,33 @@
 .pagefooter {
-	min-width: 375px;
-	padding: 40px 44px;
+	padding: 40px 0;
 	background-color: #202321;
+}
+
+@media screen and (min-width: 768px) {
+	.pagefooter {
+		padding: 64px 0;
+	}
+}
+
+.pagefooter .container {
+	padding: 0 0 0 44px;
+}
+
+@media screen and (min-width: 768px) {
+	.pagefooter .container {
+		padding: 0 0 0 114px;
+	}
+}
+
+.footer-wrapper {
+	margin-bottom: 40px;
+}
+
+@media screen and (min-width: 768px) {
+	.footer-wrapper {
+		display: flex;
+		gap: 137px;
+	}
 }
 
 .pagefooter-title {
@@ -12,8 +38,20 @@
 	margin-bottom: 28px;
 }
 
+@media screen and (min-width: 768px) {
+	.pagefooter-title {
+		font-size: 32px;
+	}
+}
+
 .pagefooter-address {
 	margin-bottom: 20px;
+}
+
+@media screen and (min-width: 768px) {
+	.pagefooter-address {
+		margin-bottom: 40px;
+	}
 }
 
 .pagefooter-address-list {
@@ -22,8 +60,20 @@
 	gap: 20px;
 }
 
+@media screen and (min-width: 768px) {
+	.pagefooter-address-list {
+		gap: 40px;
+	}
+}
+
 .pagefooter-address-list-item {
 	height: 32px;
+}
+
+@media screen and (min-width: 768px) {
+	.pagefooter-address-list-item {
+		height: 40px;
+	}
 }
 
 .pagefooter-address-list-item-link {
@@ -33,8 +83,21 @@
 	align-items: center;
 }
 
+@media screen and (min-width: 768px) {
+	.pagefooter-address-list-item-link {
+		gap: 8px;
+	}
+}
+
 .pagefooter-address-list-item-link-pic {
 	fill: #f7fbfb;
+}
+
+@media screen and (min-width: 768px) {
+	.pagefooter-address-list-item-link-pic {
+		width: 40px;
+		height: 40px;
+	}
 }
 
 .pagefooter-address-list-item-link-text {
@@ -42,10 +105,15 @@
 	font-style: normal;
 }
 
+@media screen and (min-width: 768px) {
+	.pagefooter-address-list-item-link-text {
+		font-size: 18px;
+	}
+}
+
 .pagefooter-socials {
 	display: flex;
 	gap: 32px;
-	margin-bottom: 40px;
 }
 
 .pagefooter-socials-item {
@@ -64,8 +132,14 @@
 .pagefooter-socials-item-link-pic {
 	fill: #f7fbfb;
 }
+
 .pagefooter-copyright {
 	font-family: 'Manrope', sans-serif;
 	color: #a3a5a3;
 	text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+	.pagefooter-copyright {
+	}
 }
