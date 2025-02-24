@@ -103,7 +103,7 @@
 	padding: 10px 0;
 }
 
-.header-topline-nav-list-item-link:hover::after {
+.header-topline-nav-list-item-link::after {
 	content: '';
 	position: absolute;
 	left: 0;
@@ -112,6 +112,12 @@
 	height: 0;
 	border: 1px solid #f7fbfb;
 	border-radius: 2px;
+	opacity: 0;
+	transition: opacity 500ms ease;
+}
+
+.header-topline-nav-list-item-link:hover::after {
+	opacity: 1;
 }
 
 .pageheader-topline-button {

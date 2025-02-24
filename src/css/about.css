@@ -23,6 +23,13 @@
 	}
 }
 
+@media screen and (min-width: 1440px) {
+	.about-title {
+		margin-bottom: 60px;
+		font-size: 68px;
+	}
+}
+
 .about-text {
 	color: #202321;
 }
@@ -33,6 +40,18 @@
 	}
 }
 
+@media screen and (min-width: 1440px) {
+	.about-text {
+		font-size: 24px;
+	}
+}
+
 .about-text:not(:last-child) {
 	margin-bottom: 10px;
+}
+
+@media screen and (min-width: 1440px) {
+	.about-text:not(:last-child) {
+		margin-bottom: 15px;
+	}
 }
