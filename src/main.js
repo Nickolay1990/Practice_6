@@ -1,9 +1,5 @@
 // open mobile menu
 
-
-console.log(hightObj.callFunc1());
-console.log(hightObj.lowObj.callFunc2());
-
 document.querySelector('#button-menu').addEventListener('click', function () {
 	const menu = document.querySelector('#mobile-menu');
 	const button_menu = document.querySelector('#button-menu');
