@@ -27,6 +27,13 @@
 	}
 }
 
+@media screen and (min-width: 1440px) {
+	.upcoming-title {
+		margin-bottom: 60px;
+		font-size: 68px;
+	}
+}
+
 .upcoming-tours-list {
 	margin-bottom: 24px;
 	display: flex;
@@ -42,6 +49,12 @@
 	}
 }
 
+@media screen and (min-width: 1440px) {
+	.upcoming-tours-list {
+		margin-bottom: 0;
+	}
+}
+
 .upcoming-tours-list-item {
 	flex-basis: 100%;
 	transition: transform 250ms;
@@ -51,6 +64,12 @@
 @media screen and (min-width: 768px) {
 	.upcoming-tours-list-item {
 		flex-basis: 354px;
+	}
+}
+
+@media screen and (min-width: 1440px) {
+	.upcoming-tours-list-item {
+		flex-basis: calc((100% - 40px) / 3);
 	}
 }
 
@@ -64,6 +83,12 @@
 @media screen and (min-width: 768px) {
 	.upcoming-block {
 		padding: 48px 20px;
+	}
+}
+
+@media screen and (min-width: 1440px) {
+	.upcoming-block {
+		padding: 44px 19px 48px;
 	}
 }
 
@@ -81,6 +106,12 @@
 	}
 }
 
+@media screen and (min-width: 1440px) {
+	.upcoming-block-title {
+		font-size: 28px;
+	}
+}
+
 .upcoming-block-text {
 	font-weight: 600;
 	color: #202321;
@@ -91,6 +122,13 @@
 	.upcoming-block-text {
 		margin-bottom: 40px;
 		font-size: 20px;
+	}
+}
+
+@media screen and (min-width: 1440px) {
+	.upcoming-block-text {
+		margin-bottom: 36px;
+		font-size: 24px;
 	}
 }
 
@@ -113,6 +151,14 @@
 	}
 }
 
+@media screen and (min-width: 1440px) {
+	.upcoming-block-button {
+		width: 337px;
+		height: 69px;
+		font-size: 24px;
+	}
+}
+
 .upcoming-list {
 	display: flex;
 	justify-content: space-between;
@@ -123,6 +169,12 @@
 @media screen and (min-width: 768px) {
 	.upcoming-list {
 		width: 104px;
+	}
+}
+
+@media screen and (min-width: 1440px) {
+	.upcoming-list {
+		display: none;
 	}
 }
 
