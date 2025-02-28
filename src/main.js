@@ -160,7 +160,6 @@ function updateDisplay() {
 }
 
 // swap upcoming days hoverla
-
 document.addEventListener('DOMContentLoaded', () => {
 	const modalItems = document.querySelectorAll('#upcoming-modal-hoverla .upcoming-modal-list-item');
 	const first_card = document.querySelector('#first-hoverla');
@@ -178,6 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			const endX = event.changedTouches[0].clientX;
 			const diffX = endX - startX;
 			const selectedCard = document.querySelector('#upcoming-modal-hoverla .selected-card-modal-days');
+			const buttons = document.querySelectorAll('#upcoming-modal-hoverla .upcoming-modal-list-item-listbtn-item');
 
 			if (Math.abs(diffX) > 50) {
 				if (diffX > 0) {
@@ -187,12 +187,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
 						second_card.classList.remove('selected-card-modal-days');
 						second_card.classList.add('right-position');
+
+						buttons[1].classList.remove('selected-card-days');
 					} else if (selectedCard == third_card) {
 						second_card.classList.remove('left-position');
 						second_card.classList.add('selected-card-modal-days');
 
 						third_card.classList.remove('selected-card-modal-days');
 						third_card.classList.add('right-position');
+
+						buttons[2].classList.remove('selected-card-days');
 					}
 				} else {
 					if (selectedCard == first_card) {
@@ -201,18 +205,73 @@ document.addEventListener('DOMContentLoaded', () => {
 
 						second_card.classList.remove('right-position');
 						second_card.classList.add('selected-card-modal-days');
+
+						buttons[1].classList.add('selected-card-days');
 					} else if (selectedCard == second_card) {
 						second_card.classList.remove('selected-card-modal-days');
 						second_card.classList.add('left-position');
 
 						third_card.classList.remove('right-position');
 						third_card.classList.add('selected-card-modal-days');
+
+						buttons[2].classList.add('selected-card-days');
 					}
 				}
 			}
 		});
 	});
 });
+
+// swap upcoming days hoverla desctop
+
+const swapButtons = document.querySelectorAll('#upcoming-modal-hoverla .swap-btn');
+
+swapButtons.forEach(button => {
+	button.addEventListener('click', swapHandler);
+});
+
+function swapHandler(event) {
+	const buttons = document.querySelectorAll('#upcoming-modal-hoverla .upcoming-modal-list-item-listbtn-item');
+	const first_card = document.querySelector('#first-hoverla');
+	const second_card = document.querySelector('#second-hoverla');
+	const third_card = document.querySelector('#third-hoverla');
+
+	switch (event.currentTarget) {
+		case swapButtons[0]:
+			buttons[1].classList.remove('selected-card-days');
+			buttons[2].classList.remove('selected-card-days');
+
+			first_card.classList.add('selected-card-modal-days');
+			first_card.classList.remove('left-position');
+			second_card.classList.remove('selected-card-modal-days', 'left-position');
+			second_card.classList.add('right-position');
+			third_card.classList.remove('selected-card-modal-days', 'left-position');
+			third_card.classList.add('right-position');
+			break;
+		case swapButtons[1]:
+			buttons[1].classList.add('selected-card-days');
+			buttons[2].classList.remove('selected-card-days');
+
+			first_card.classList.remove('selected-card-modal-days');
+			first_card.classList.add('left-position');
+			second_card.classList.remove('right-position', 'left-position');
+			second_card.classList.add('selected-card-modal-days');
+			third_card.classList.remove('selected-card-modal-days');
+			third_card.classList.add('right-position');
+			break;
+		case swapButtons[2]:
+			buttons[1].classList.add('selected-card-days');
+			buttons[2].classList.add('selected-card-days');
+
+			first_card.classList.remove('selected-card-modal-days');
+			first_card.classList.add('left-position');
+			second_card.classList.remove('right-position', 'selected-card-modal-days');
+			second_card.classList.add('left-position');
+			third_card.classList.remove('right-position');
+			third_card.classList.add('selected-card-modal-days');
+			break;
+	}
+}
 
 // swap upcoming days bukovel
 
