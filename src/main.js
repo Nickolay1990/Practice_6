@@ -1,5 +1,7 @@
 // open mobile menu
 
+const b = 10;
+
 document.querySelector('#button-menu').addEventListener('click', function () {
 	const menu = document.querySelector('#mobile-menu');
 	const button_menu = document.querySelector('#button-menu');
@@ -340,6 +342,82 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	});
 });
+
+// swap upcoming days bukovel desctop
+
+const swapButtonsBukovel = document.querySelectorAll('#upcoming-modal-bukovel .swap-btn');
+
+swapButtonsBukovel.forEach(button => {
+	button.addEventListener('click', swapHandlerBukovel);
+});
+
+function swapHandlerBukovel(event) {
+	const buttons = document.querySelectorAll('#upcoming-modal-bukovel .upcoming-modal-list-item-listbtn-item');
+
+	const first_card = document.querySelector('#first-bukovel');
+	const second_card = document.querySelector('#second-bukovel');
+	const third_card = document.querySelector('#third-bukovel');
+	const fourth_card = document.querySelector('#fourd-bukovel');
+
+	switch (event.target) {
+		case swapButtonsBukovel[0]:
+			buttons[1].classList.remove('selected-card-days');
+			buttons[2].classList.remove('selected-card-days');
+			buttons[3].classList.remove('selected-card-days');
+
+			first_card.classList.add('selected-card-modal-days');
+			first_card.classList.remove('left-position');
+			second_card.classList.remove('selected-card-modal-days', 'left-position');
+			second_card.classList.add('right-position');
+			third_card.classList.remove('selected-card-modal-days', 'left-position');
+			third_card.classList.add('right-position');
+			fourth_card.classList.remove('selected-card-modal-days', 'left-position');
+			fourth_card.classList.add('right-position');
+			break;
+		case swapButtonsBukovel[1]:
+			buttons[1].classList.add('selected-card-days');
+			buttons[2].classList.remove('selected-card-days');
+			buttons[3].classList.remove('selected-card-days');
+
+			first_card.classList.remove('selected-card-modal-days');
+			first_card.classList.add('left-position');
+			second_card.classList.remove('right-position', 'left-position');
+			second_card.classList.add('selected-card-modal-days');
+			third_card.classList.remove('selected-card-modal-days', 'left-position');
+			third_card.classList.add('right-position');
+			fourth_card.classList.remove('selected-card-modal-days');
+			fourth_card.classList.add('right-position');
+			break;
+		case swapButtonsBukovel[2]:
+			buttons[1].classList.add('selected-card-days');
+			buttons[2].classList.add('selected-card-days');
+			buttons[3].classList.remove('selected-card-days');
+
+			first_card.classList.remove('selected-card-modal-days');
+			first_card.classList.add('left-position');
+			second_card.classList.remove('right-position', 'selected-card-modal-days');
+			second_card.classList.add('left-position');
+			third_card.classList.remove('right-position', 'left-position');
+			third_card.classList.add('selected-card-modal-days');
+			fourth_card.classList.remove('selected-card-modal-days');
+			fourth_card.classList.add('right-position');
+			break;
+		case swapButtonsBukovel[3]:
+			buttons[1].classList.add('selected-card-days');
+			buttons[2].classList.add('selected-card-days');
+			buttons[3].classList.add('selected-card-days');
+
+			first_card.classList.remove('selected-card-modal-days');
+			first_card.classList.add('left-position');
+			second_card.classList.remove('right-position', 'selected-card-modal-days');
+			second_card.classList.add('left-position');
+			third_card.classList.remove('right-position', 'selected-card-modal-days');
+			third_card.classList.add('left-position');
+			fourth_card.classList.remove('right-position');
+			fourth_card.classList.add('selected-card-modal-days');
+			break;
+	}
+}
 
 // swap upcoming days carpathians
 
