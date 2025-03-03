@@ -1,7 +1,5 @@
 // open mobile menu
 
-const b = 10;
-
 document.querySelector('#button-menu').addEventListener('click', function () {
 	const menu = document.querySelector('#mobile-menu');
 	const button_menu = document.querySelector('#button-menu');
