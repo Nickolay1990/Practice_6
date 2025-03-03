@@ -434,6 +434,49 @@
 	}
 }
 
+@media screen and (min-width: 1440px) {
+	.first-bukovel {
+		background-image: url('/img/upcoming/upcoming-modal-desc/first-bukovel-desc.jpg');
+	}
+}
+
+@media screen and (min-width: 1440px) and (min-resolution: 192dpi) {
+	.first-bukovel {
+		background-image: url('/img/upcoming/upcoming-modal-desc/first-bukovel-desc@2x.jpg');
+	}
+}
+
+.upcoming-modal-list-item-block-days-bukovel {
+	padding: 0 9px 0 48px;
+	background: #5b86a1;
+	border-radius: 0 8px 8px 0;
+	font-weight: 500;
+	color: #f7fbfb;
+	margin-bottom: 12px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 48px;
+	width: 300px;
+}
+
+@media screen and (min-width: 768px) {
+	.upcoming-modal-list-item-block-days-bukovel {
+		padding: 0 9px 0 60px;
+		margin-bottom: 16px;
+		width: 377px;
+		font-size: 20px;
+	}
+}
+
+@media screen and (min-width: 1440px) {
+	.upcoming-modal-list-item-block-days-bukovel {
+		padding: 7px 9px 7px 100px;
+		width: 500px;
+		font-size: 28px;
+	}
+}
+
 .second-bukovel {
 	background-image: url('/img/upcoming/bukovel-second.jpg');
 	background-position: center;
@@ -456,6 +499,18 @@
 @media screen and (min-width: 768px) and (min-resolution: 192dpi) {
 	.second-bukovel {
 		background-image: url('/img/upcoming/upcoming-modal-tab/second-bukovel-tab@2x.jpg');
+	}
+}
+
+@media screen and (min-width: 1440px) {
+	.second-bukovel {
+		background-image: url('/img/upcoming/upcoming-modal-desc/second-bukovel-desc.jpg');
+	}
+}
+
+@media screen and (min-width: 1440px) and (min-resolution: 192dpi) {
+	.second-bukovel {
+		background-image: url('/img/upcoming/upcoming-modal-desc/second-bukovel-desc@2x.jpg');
 	}
 }
 
@@ -484,6 +539,18 @@
 	}
 }
 
+@media screen and (min-width: 1440px) {
+	.third-bukovel {
+		background-image: url('/img/upcoming/upcoming-modal-desc/third-bukovel-desc.jpg');
+	}
+}
+
+@media screen and (min-width: 1440px) and (min-resolution: 192dpi) {
+	.third-bukovel {
+		background-image: url('/img/upcoming/upcoming-modal-desc/third-bukovel-desc@2x.jpg');
+	}
+}
+
 .fourd-bukovel {
 	background-image: url('/img/upcoming/bukovel-fourd.jpg');
 	background-position: center;
@@ -509,26 +576,15 @@
 	}
 }
 
-.upcoming-modal-list-item-block-days-bukovel {
-	padding: 0 9px 0 48px;
-	background: #5b86a1;
-	border-radius: 0 8px 8px 0;
-	font-weight: 500;
-	color: #f7fbfb;
-	margin-bottom: 12px;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	height: 48px;
-	width: 300px;
+@media screen and (min-width: 1440px) {
+	.fourd-bukovel {
+		background-image: url('/img/upcoming/upcoming-modal-desc/fourth-bukovel-desc.jpg');
+	}
 }
 
-@media screen and (min-width: 768px) {
-	.upcoming-modal-list-item-block-days-bukovel {
-		padding: 0 9px 0 60px;
-		margin-bottom: 16px;
-		width: 377px;
-		font-size: 20px;
+@media screen and (min-width: 1440px) and (min-resolution: 192dpi) {
+	.fourd-bukovel {
+		background-image: url('/img/upcoming/upcoming-modal-desc/fourth-bukovel-desc@2x.jpg');
 	}
 }
 
