@@ -394,6 +394,10 @@
 	}
 }
 
+.upcoming-modal-bookbtn:hover {
+	background-color: #1b1d1b;
+}
+
 .upcoming-modal-list-item-block-days-low {
 	font-weight: 500;
 	color: #000;
@@ -615,6 +619,49 @@
 	}
 }
 
+@media screen and (min-width: 1440px) {
+	.first-carpathians {
+		background-image: url('/img/upcoming/upcoming-modal-desc/first-carpathians-desc.jpg');
+	}
+}
+
+@media screen and (min-width: 1440px) and (min-resolution: 192dpi) {
+	.first-carpathians {
+		background-image: url('/img/upcoming/upcoming-modal-desc/first-carpathians-desc@2x.jpg');
+	}
+}
+
+.upcoming-modal-list-item-block-days-carpathians {
+	padding: 0 9px 0 48px;
+	background: #5b86a1;
+	border-radius: 0 8px 8px 0;
+	font-weight: 500;
+	color: #f7fbfb;
+	margin-bottom: 12px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 48px;
+	width: 255px;
+}
+
+@media screen and (min-width: 768px) {
+	.upcoming-modal-list-item-block-days-carpathians {
+		padding: 0 9px 0 60px;
+		margin-bottom: 16px;
+		width: 330px;
+		font-size: 20px;
+	}
+}
+
+@media screen and (min-width: 1440px) {
+	.upcoming-modal-list-item-block-days-carpathians {
+		padding: 0 9px 0 100px;
+		width: 540px;
+		font-size: 28px;
+	}
+}
+
 .second-carpathians {
 	background-image: url('/img/upcoming/carpathians-second.jpg');
 	background-position: center;
@@ -637,6 +684,18 @@
 @media screen and (min-width: 768px) and (min-resolution: 192dpi) {
 	.second-carpathians {
 		background-image: url('/img/upcoming/upcoming-modal-tab/second-carpathians-tab@2x.jpg');
+	}
+}
+
+@media screen and (min-width: 1440px) {
+	.second-carpathians {
+		background-image: url('/img/upcoming/upcoming-modal-desc/second-carpathians-desc.jpg');
+	}
+}
+
+@media screen and (min-width: 1440px) and (min-resolution: 192dpi) {
+	.second-carpathians {
+		background-image: url('/img/upcoming/upcoming-modal-desc/second-carpathians-desc@2x.jpg');
 	}
 }
 
@@ -665,6 +724,18 @@
 	}
 }
 
+@media screen and (min-width: 1440px) {
+	.third-carpathians {
+		background-image: url('/img/upcoming/upcoming-modal-desc/third-carpathians-desc.jpg');
+	}
+}
+
+@media screen and (min-width: 1440px) and (min-resolution: 192dpi) {
+	.third-carpathians {
+		background-image: url('/img/upcoming/upcoming-modal-desc/third-carpathians-desc@2x.jpg');
+	}
+}
+
 .fourd-carpathians {
 	background-image: url('/img/upcoming/carpathians-fourd.jpg');
 	background-position: center;
@@ -687,6 +758,18 @@
 @media screen and (min-width: 768px) and (min-resolution: 192dpi) {
 	.fourd-carpathians {
 		background-image: url('/img/upcoming/upcoming-modal-tab/forth-carpathians-tab@2x.jpg');
+	}
+}
+
+@media screen and (min-width: 1440px) {
+	.fourd-carpathians {
+		background-image: url('/img/upcoming/upcoming-modal-desc/fourth-carpathians-desc.jpg');
+	}
+}
+
+@media screen and (min-width: 1440px) and (min-resolution: 192dpi) {
+	.fourd-carpathians {
+		background-image: url('/img/upcoming/upcoming-modal-desc/fourth-carpathians-desc@2x.jpg');
 	}
 }
 
@@ -715,6 +798,18 @@
 	}
 }
 
+@media screen and (min-width: 1440px) {
+	.fived-carpathians {
+		background-image: url('/img/upcoming/upcoming-modal-desc/fifth-carpathians-desc.jpg');
+	}
+}
+
+@media screen and (min-width: 1440px) and (min-resolution: 192dpi) {
+	.fived-carpathians {
+		background-image: url('/img/upcoming/upcoming-modal-desc/fifth-carpathians-desc@2x.jpg');
+	}
+}
+
 .sixed-carpathians {
 	background-image: url('/img/upcoming/carpathians-sixed.jpg');
 	background-position: center;
@@ -737,6 +832,18 @@
 @media screen and (min-width: 768px) and (min-resolution: 192dpi) {
 	.sixed-carpathians {
 		background-image: url('/img/upcoming/upcoming-modal-tab/sixth-carpathians-tab@2x.jpg');
+	}
+}
+
+@media screen and (min-width: 1440px) {
+	.sixed-carpathians {
+		background-image: url('/img/upcoming/upcoming-modal-desc/sixth-carpathians-desc.jpg');
+	}
+}
+
+@media screen and (min-width: 1440px) and (min-resolution: 192dpi) {
+	.sixed-carpathians {
+		background-image: url('/img/upcoming/upcoming-modal-desc/sixth-carpathians-desc@2x.jpg');
 	}
 }
 
@@ -765,26 +872,15 @@
 	}
 }
 
-.upcoming-modal-list-item-block-days-carpathians {
-	padding: 0 9px 0 48px;
-	background: #5b86a1;
-	border-radius: 0 8px 8px 0;
-	font-weight: 500;
-	color: #f7fbfb;
-	margin-bottom: 12px;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	height: 48px;
-	width: 255px;
+@media screen and (min-width: 1440px) {
+	.sevened-carpathians {
+		background-image: url('/img/upcoming/upcoming-modal-desc/seventh-carpathians-desc.jpg');
+	}
 }
 
-@media screen and (min-width: 768px) {
-	.upcoming-modal-list-item-block-days-carpathians {
-		padding: 0 9px 0 60px;
-		margin-bottom: 16px;
-		width: 330px;
-		font-size: 20px;
+@media screen and (min-width: 1440px) and (min-resolution: 192dpi) {
+	.sevened-carpathians {
+		background-image: url('/img/upcoming/upcoming-modal-desc/seventh-carpathians-desc@2x.jpg');
 	}
 }
 
