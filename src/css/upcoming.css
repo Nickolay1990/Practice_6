@@ -159,6 +159,10 @@
 	}
 }
 
+.upcoming-block-button:hover {
+	background-color: #1b1d1b;
+}
+
 .upcoming-list {
 	display: flex;
 	justify-content: space-between;
