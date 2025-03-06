@@ -31,6 +31,12 @@ body {
 	background-color: #f7fbfb;
 }
 
+@media screen and (min-width: 1440px) {
+	body {
+		background-color: #ffffff;
+	}
+}
+
 ul,
 ol {
 	list-style-type: none;

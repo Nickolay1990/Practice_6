@@ -78,6 +78,7 @@
 	border-bottom: 1px solid #5b86a1;
 	border-left: 1px solid #5b86a1;
 	padding: 28px 20px;
+	background-color: #f7fbfb;
 }
 
 @media screen and (min-width: 768px) {

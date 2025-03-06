@@ -23,6 +23,13 @@
 	}
 }
 
+@media screen and (min-width: 1440px) {
+	.reviews-title {
+		margin-bottom: 70px;
+		font-size: 68px;
+	}
+}
+
 .reviews-block {
 	display: flex;
 	flex-direction: column;
@@ -41,9 +48,24 @@
 	transition: transform 0.6s;
 }
 
+.reviews-inner:last-child {
+	display: none;
+}
 @media screen and (min-width: 768px) {
 	.reviews-inner {
 		width: 354px;
+	}
+}
+
+@media screen and (min-width: 1440px) {
+	.reviews-inner {
+		width: calc((100% - 40px) / 3);
+	}
+	.reviews-inner:not(:first-of-type) button {
+		display: none;
+	}
+	.reviews-inner:last-child {
+		display: block;
 	}
 }
 
@@ -53,15 +75,23 @@
 	position: relative;
 	outline: 1px solid #5b86a1;
 	backface-visibility: hidden;
+	max-height: 570px;
+	overflow: auto;
+}
+
+@media screen and (min-width: 1440px) {
+	.reviews-card {
+		background-color: #f7fbfb;
+	}
 }
 
 .reviews-card-photo {
 	position: absolute;
-	top: 84px;
+	top: 72px;
 	left: 50%;
 	transform: translateX(-50%);
-	width: 100px;
-	height: 100px;
+	width: 125px;
+	height: 125px;
 }
 
 .reviews-card-sunset {
@@ -71,6 +101,7 @@
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
+	flex-shrink: 0;
 }
 
 @media screen and (min-resolution: 192dpi) {
@@ -91,6 +122,13 @@
 	}
 }
 
+@media screen and (min-width: 1440px) {
+	.reviews-card-review {
+		padding: 83px 28px 65px;
+		min-height: 436px;
+	}
+}
+
 .reviews-card-review-name {
 	font-weight: 600;
 	font-size: 20px;
@@ -103,6 +141,12 @@
 	.reviews-card-review-name {
 		margin-bottom: 24px;
 		font-size: 24px;
+	}
+}
+
+@media screen and (min-width: 1440px) {
+	.reviews-card-review-name {
+		font-size: 28px;
 	}
 }
 
