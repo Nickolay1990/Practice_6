@@ -26,12 +26,27 @@
 					</div>
 				</div>
 				<div class="reviews-card-back">
-					<img
-						class="reviews-card-back-img"
-						src="/img/reviews/reviews-maria.jpg"
-						srcset="/img/reviews/reviews-maria@2x.jpg 2x"
-						alt="photo of maria in mountains"
-					/>
+					<picture>
+						<source
+							media="(max-width: 767px)"
+							srcset="/img/reviews/reviews-maria.jpg 1x, /img/reviews/reviews-maria@2x.jpg 2x"
+						/>
+						<source
+							media="(min-width: 1440px)"
+							srcset="/img/reviews/reviews-maria-desc.jpg 1x, /img/reviews/reviews-maria-desc@2x.jpg 2x"
+						/>
+						<source
+							media="(min-width: 768px)"
+							srcset="/img/reviews/reviews-maria-tab.jpg 1x, /img/reviews/reviews-maria-tab@2x.jpg 2x"
+						/>
+						<img
+							class="reviews-card-back-img"
+							src="/img/reviews/reviews-maria.jpg"
+							srcset="/img/reviews/reviews-maria@2x.jpg 2x"
+							alt="photo of maria in mountains"
+						/>
+					</picture>
+
 					<button class="reviews-card-review-button to-front">
 						<svg width="27" height="16" class="reviews-card-review-button-back">
 							<use href="/img/icons.svg#icon-round"></use>
@@ -62,12 +77,26 @@
 					</div>
 				</div>
 				<div class="reviews-card-back">
-					<img
-						class="reviews-card-back-img"
-						src="/img/reviews/reviews-ostap.jpg"
-						srcset="/img/reviews/reviews-ostap@2x.jpg 2x"
-						alt="photo of maria in mountains"
-					/>
+					<picture>
+						<source
+							media="(max-width: 767px)"
+							srcset="/img/reviews/reviews-ostap.jpg 1x, /img/reviews/reviews-ostap@2x.jpg 2x"
+						/>
+						<source
+							media="(min-width: 1440px)"
+							srcset="/img/reviews/reviews-ostap-desc.jpg 1x, /img/reviews/reviews-ostap-desc@2x.jpg 2x"
+						/>
+						<source
+							media="(min-width: 768px)"
+							srcset="/img/reviews/reviews-ostap-tab.jpg 1x, /img/reviews/reviews-ostap-tab@2x.jpg 2x"
+						/>
+						<img
+							class="reviews-card-back-img"
+							src="/img/reviews/reviews-ostap.jpg"
+							srcset="/img/reviews/reviews-ostap@2x.jpg 2x"
+							alt="photo of ostap in mountains"
+						/>
+					</picture>
 					<button class="reviews-card-review-button to-front">
 						<svg width="27" height="16" class="reviews-card-review-button-back">
 							<use href="/img/icons.svg#icon-round"></use>
