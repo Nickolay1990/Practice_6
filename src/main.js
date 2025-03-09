@@ -801,13 +801,20 @@ document.querySelectorAll('.upcoming-modal-bookbtn').forEach(button => {
 
 document.querySelectorAll('.reviews-card-review-button').forEach(button => {
 	button.addEventListener('click', function () {
-		let backblock;
-		if (this.classList.contains('to-front')) {
-			backblock = this.parentElement.parentElement;
+		if (window.innerWidth >= 1440) {
+			const cards = document.querySelectorAll('.reviews-inner');
+			cards.forEach(card => {
+				card.classList.toggle('reviews-go-to-back');
+			});
 		} else {
-			backblock = this.parentElement.parentElement.parentElement;
+			let backblock;
+			if (this.classList.contains('to-front')) {
+				backblock = this.parentElement.parentElement;
+			} else {
+				backblock = this.parentElement.parentElement.parentElement;
+			}
+			backblock.classList.toggle('reviews-go-to-back');
 		}
-		backblock.classList.toggle('reviews-go-to-back');
 	});
 });
 
