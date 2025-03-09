@@ -178,7 +178,7 @@
 }
 
 @media screen and (min-width: 1440px) {
-	.upcoming-list {
+	.upcoming .upcoming-list {
 		display: none;
 	}
 }
