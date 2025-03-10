@@ -844,6 +844,31 @@ document.querySelector('#galery-button-right').addEventListener('click', functio
 				}
 			}
 		}
+	} else if (window.innerWidth >= 1440) {
+		this.disabled = true;
+		const element = document.querySelector('.galery-list');
+		const style = window.getComputedStyle(element);
+		const matrix = style.transform;
+		const step = -1190;
+		const rightButton = document.querySelector('#galery-right-button-scroll');
+		const leftButton = document.querySelector('#galery-left-button-scroll');
+
+		if (matrix === 'none') {
+			element.style.transform = `translate(-1190px)`;
+			leftButton.classList.remove('upcoming-list-item-button-pic-disabled');
+			leftButton.classList.add('upcoming-list-item-button-pic');
+		} else {
+			const matrixData = matrix.split(', ')[4];
+			const newTranlate = Number(matrixData) + step;
+
+			if (newTranlate >= -3570) {
+				element.style.transform = `translate(${newTranlate}px)`;
+				if (newTranlate === -3570) {
+					rightButton.classList.remove('upcoming-list-item-button-pic');
+					rightButton.classList.add('upcoming-list-item-button-pic-disabled');
+				}
+			}
+		}
 	} else if (window.innerWidth >= 768) {
 		this.disabled = true;
 		const element = document.querySelector('.galery-list');
@@ -899,6 +924,30 @@ document.querySelector('#galery-button-left').addEventListener('click', function
 				element.style.transform = `translate(${newTranlate}px)`;
 			}
 		}
+	} else if (window.innerWidth >= 1440) {
+		this.disabled = true;
+		const element = document.querySelector('.galery-list');
+		const style = window.getComputedStyle(element);
+		const matrix = style.transform;
+		const step = 1190;
+		const leftButton = document.querySelector('#galery-left-button-scroll');
+		const rightButton = document.querySelector('#galery-right-button-scroll');
+		if (matrix !== 'none') {
+			const matrixData = Number(matrix.split(', ')[4]);
+			const newTranlate = matrixData + step;
+
+			if (matrixData === -1190) {
+				element.style.transform = 'none';
+				leftButton.classList.remove('upcoming-list-item-button-pic');
+				leftButton.classList.add('upcoming-list-item-button-pic-disabled');
+			} else if (matrixData === -3570) {
+				rightButton.classList.remove('upcoming-list-item-button-pic-disabled');
+				rightButton.classList.add('upcoming-list-item-button-pic');
+				element.style.transform = `translate(${newTranlate}px)`;
+			} else {
+				element.style.transform = `translate(${newTranlate}px)`;
+			}
+		}
 	} else if (window.innerWidth >= 768) {
 		this.disabled = true;
 		const element = document.querySelector('.galery-list');
@@ -926,4 +975,27 @@ document.querySelector('#galery-button-left').addEventListener('click', function
 	setTimeout(() => {
 		this.disabled = false;
 	}, 300);
+});
+
+// open gallery modal
+
+const galleryList = document.querySelector('.galery-list');
+galleryList.addEventListener('click', function (event) {
+	if (window.innerWidth >= 1440 && event.target.nodeName == 'IMG') {
+		const imgNumber = event.target.src.split('-')[1].split('.')[0];
+
+		const img = document.createElement('img');
+		img.src = `/img/galery/gallery-modal/gallery-modal-${imgNumber}.jpg`;
+		img.srcset = `/img/galery/gallery-modal/gallery-modal-${imgNumber}@2x.jpg 2x`;
+		img.alt = 'Nature in the Ukrainian mountains';
+		img.id = 'modal-image';
+		img.addEventListener('click', function () {
+			modal.close();
+		});
+		const wrapper = document.createElement('div');
+		wrapper.appendChild(img);
+
+		const modal = basicLightbox.create(wrapper);
+		modal.show();
+	}
 });

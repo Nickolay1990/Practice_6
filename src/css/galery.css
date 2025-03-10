@@ -36,6 +36,10 @@
 	}
 }
 
+.gallery-wrapper {
+	overflow: hidden;
+}
+
 .galery-list {
 	display: flex;
 	flex-wrap: nowrap;
@@ -53,7 +57,7 @@
 @media screen and (min-width: 1440px) {
 	.galery-list {
 		margin-bottom: 40px;
-		overflow: hidden;
+		/* overflow: hidden; */
 	}
 }
 
@@ -77,6 +81,7 @@
 
 .galery-list-item-image {
 	object-fit: cover;
+	cursor: pointer;
 }
 
 @media screen and (min-width: 1440px) {
@@ -93,4 +98,12 @@
 		width: 15px;
 		height: 27px;
 	}
+}
+
+#modal-image {
+	width: 90%;
+	height: 90%;
+	display: block;
+	pointer-events: auto;
+	cursor: pointer;
 }
