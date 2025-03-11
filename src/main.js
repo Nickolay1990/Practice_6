@@ -1,3 +1,6 @@
+import imageUrl from './img/galery/gallery-modal/gallery-modal-first.jpg';
+console.log(imageUrl);
+
 // open mobile menu
 
 document.querySelector('#button-menu').addEventListener('click', function () {
@@ -985,8 +988,10 @@ galleryList.addEventListener('click', function (event) {
 		const imgNumber = event.target.src.split('-')[1].split('.')[0];
 
 		const img = document.createElement('img');
-		img.src = `../img/galery/gallery-modal/gallery-modal-${imgNumber}.jpg`;
-		img.srcset = `../img/galery/gallery-modal/gallery-modal-${imgNumber}@2x.jpg 2x`;
+		// img.src = `../img/galery/gallery-modal/gallery-modal-${imgNumber}.jpg`;
+		// img.srcset = `../img/galery/gallery-modal/gallery-modal-${imgNumber}@2x.jpg 2x`;
+		img.src = imageUrl;
+
 		img.alt = 'Nature in the Ukrainian mountains';
 		img.id = 'modal-image';
 		img.addEventListener('click', function () {
