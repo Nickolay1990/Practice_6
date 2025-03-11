@@ -30,6 +30,19 @@
 	}
 }
 
+@media screen and (min-width: 1440px) {
+	.question {
+		background-image: url('/img/question/question-background-desc.jpg');
+		min-height: 1074px;
+	}
+}
+
+@media screen and (min-width: 1440px) and (min-resolution: 192dpi) {
+	.question {
+		background-image: url('/img/question/question-background-desc@2x.jpg');
+	}
+}
+
 .question-window {
 	width: 311px;
 	background-color: #f7fbfb;
@@ -38,9 +51,16 @@
 
 @media screen and (min-width: 768px) {
 	.question-window {
-		max-width: 478px;
+		/* max-width: 478px; */
 		width: 478px;
 		padding: 40px 42px;
+	}
+}
+
+@media screen and (min-width: 1440px) {
+	.question-window {
+		width: 774px;
+		padding: 60px 47px;
 	}
 }
 
@@ -56,6 +76,20 @@
 	.question-window-title {
 		margin: 0 auto 24px;
 		font-size: 32px;
+	}
+}
+
+@media screen and (min-width: 1440px) {
+	.question-window-title {
+		margin: 0 auto 32px;
+		font-size: 48px;
+		white-space: nowrap;
+	}
+}
+
+@media screen and (min-width: 1440px) {
+	.br-question {
+		display: none;
 	}
 }
 
@@ -76,6 +110,14 @@
 	}
 }
 
+@media screen and (min-width: 1440px) {
+	.question-window-text {
+		margin: 0 auto 44px;
+		max-width: 502px;
+		font-size: 20px;
+	}
+}
+
 .question-window-form {
 	display: flex;
 	flex-direction: column;
@@ -89,22 +131,35 @@
 	}
 }
 
+@media screen and (min-width: 1440px) {
+	.question-window-form {
+		gap: 28px;
+	}
+}
+
 .question-window-form-input {
 	border: none;
 	border-bottom: 1px solid #a3a5a3;
 	outline: none;
 	padding: 0 0 8px 4px;
 	background: transparent;
-	min-height: 28px;
+	/* min-height: 28px; */
 	line-height: 0;
 }
 
 @media screen and (min-width: 768px) {
 	.question-window-form-input {
-		min-height: 32px;
+		/* min-height: 32px; */
 		font-size: 20px;
 		width: 354px;
 		margin: 0 auto;
+	}
+}
+
+@media screen and (min-width: 1440px) {
+	.question-window-form-input {
+		width: 575px;
+		font-size: 24px;
 	}
 }
 
@@ -119,6 +174,26 @@
 	}
 }
 
+@media screen and (min-width: 1440px) {
+	.question-window-form-input::placeholder {
+		font-size: 24px;
+	}
+}
+
 .question .modal-form-submit {
 	width: 100%;
+	margin-top: 4px;
+}
+
+@media screen and (min-width: 768px) {
+	.question .modal-form-submit {
+		margin-top: 8px;
+	}
+}
+
+@media screen and (min-width: 1440px) {
+	.question .modal-form-submit {
+		margin-top: 16px;
+		width: 575px;
+	}
 }
