@@ -9,6 +9,12 @@
 	}
 }
 
+@media screen and (min-width: 1440px) {
+	.pagefooter {
+		padding: 60px 0 48px;
+	}
+}
+
 .pagefooter .container {
 	padding: 0 0 0 44px;
 }
@@ -16,6 +22,12 @@
 @media screen and (min-width: 768px) {
 	.pagefooter .container {
 		padding: 0 0 0 114px;
+	}
+}
+
+@media screen and (min-width: 1440px) {
+	.pagefooter .container {
+		padding: 0 0 0 333px;
 	}
 }
 
@@ -30,6 +42,13 @@
 	}
 }
 
+@media screen and (min-width: 1440px) {
+	.footer-wrapper {
+		gap: 128px;
+		margin-bottom: 64px;
+	}
+}
+
 .pagefooter-title {
 	font-weight: 400;
 	font-size: 28px;
@@ -41,6 +60,19 @@
 @media screen and (min-width: 768px) {
 	.pagefooter-title {
 		font-size: 32px;
+		margin-bottom: 0;
+	}
+}
+
+@media screen and (min-width: 1440px) {
+	.pagefooter-title {
+		font-size: 60px;
+	}
+}
+
+@media screen and (min-width: 1440px) {
+	.footer-wrapper-inner {
+		padding-top: 17px;
 	}
 }
 
@@ -83,6 +115,14 @@
 	align-items: center;
 }
 
+.pagefooter-address-list-item-link:hover .pagefooter-address-list-item-link-pic {
+	fill: #5b86a1;
+}
+
+.pagefooter-address-list-item-link:hover .pagefooter-address-list-item-link-text {
+	color: #5b86a1;
+}
+
 @media screen and (min-width: 768px) {
 	.pagefooter-address-list-item-link {
 		gap: 8px;
@@ -91,6 +131,7 @@
 
 .pagefooter-address-list-item-link-pic {
 	fill: #f7fbfb;
+	transition: fill 250ms;
 }
 
 @media screen and (min-width: 768px) {
@@ -103,11 +144,18 @@
 .pagefooter-address-list-item-link-text {
 	color: #f7fbfb;
 	font-style: normal;
+	transition: color 250ms;
 }
 
 @media screen and (min-width: 768px) {
 	.pagefooter-address-list-item-link-text {
 		font-size: 18px;
+	}
+}
+
+@media screen and (min-width: 1440px) {
+	.pagefooter-address-list-item-link-text {
+		font-size: 24px;
 	}
 }
 
@@ -129,17 +177,17 @@
 	align-items: center;
 }
 
+.pagefooter-socials-item-link:hover .pagefooter-socials-item-link-pic {
+	fill: #5b86a1;
+}
+
 .pagefooter-socials-item-link-pic {
 	fill: #f7fbfb;
+	transition: fill 250ms;
 }
 
 .pagefooter-copyright {
 	font-family: 'Manrope', sans-serif;
 	color: #a3a5a3;
 	text-align: center;
-}
-
-@media screen and (min-width: 768px) {
-	.pagefooter-copyright {
-	}
 }
