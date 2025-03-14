@@ -59,6 +59,21 @@
 	}
 }
 
+@media screen and (min-width: 1920px) {
+	.hero {
+		background-image: url('/img/hero/hero-desctop-big.jpg');
+		min-height: 0;
+		height: 975px;
+		padding: 258px 0 0;
+	}
+}
+
+@media screen and (min-width: 1920px) and (min-resolution: 192dpi) {
+	.hero {
+		background-image: url('/img/hero/hero-desctop-big@2x.jpg');
+	}
+}
+
 .pageheader-title {
 	font-size: 40px;
 	text-align: center;
@@ -160,6 +175,13 @@
 		position: absolute;
 		right: 145px;
 		top: 649px;
+	}
+}
+
+@media screen and (min-width: 1920px) {
+	.mobile-menu-social-list-desctop {
+		right: 375px;
+		top: 638px;
 	}
 }
 
