@@ -1038,7 +1038,7 @@ galleryList.addEventListener('click', function (event) {
 
 		const img = document.createElement('img');
 		img.src = imageUrls.find(elem => elem.normal.includes(imgNumber)).normal;
-		img.srcset = imageUrls.find(elem => elem.normal.includes(imgNumber)).retina;
+		img.srcset = imageUrls.find(elem => elem.normal.includes(imgNumber)).retina + ' 2x';
 
 		img.alt = 'Nature in the Ukrainian mountains';
 		img.id = 'modal-image';

@@ -8,6 +8,12 @@
 	}
 }
 
+@media screen and (min-width: 1920px) {
+	.advantages {
+		padding-top: 46px;
+	}
+}
+
 .advantages .container {
 	padding: 0 30px;
 }
