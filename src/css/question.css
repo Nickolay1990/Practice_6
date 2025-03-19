@@ -43,6 +43,18 @@
 	}
 }
 
+@media screen and (min-width: 1920px) {
+	.question {
+		background-image: url('/img/question/question-background-1920.jpg');
+	}
+}
+
+@media screen and (min-width: 1920px) and (min-resolution: 192dpi) {
+	.question {
+		background-image: url('/img/question/question-background-1920@2x.jpg');
+	}
+}
+
 .question-window {
 	width: 311px;
 	background-color: #f7fbfb;
