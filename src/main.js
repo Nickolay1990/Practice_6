@@ -1,24 +1,23 @@
 // open mobile menu
 
-document.querySelector('#button-menu').addEventListener('click', function () {
+document.querySelector('#button-menu').addEventListener('click', openMobileMenuHandler);
+
+function openMobileMenuHandler() {
 	const menu = document.querySelector('#mobile-menu');
-	const button_menu = document.querySelector('#button-menu');
-	const title = document.querySelector('#pageheader-title');
-	const text = document.querySelector('#pageheader-text');
-	const book = document.querySelector('#pageheader-book');
+	const content = document.querySelector('.hero .container');
 	const buton_close = document.querySelector('#mobile-menu-close');
 	const darkWindow = document.querySelector('#dark-window');
 	const header = document.querySelector('#pageheader');
 
 	menu.classList.add('open-menu');
-	button_menu.classList.add('visually-hidden');
-	buton_close.classList.remove('visually-hidden');
-	title.classList.add('visually-hidden');
-	text.classList.add('visually-hidden');
-	book.classList.add('visually-hidden');
-	darkWindow.classList.toggle('dark-window');
-	header.classList.toggle('padding-for-tablet-menu');
-});
+	darkWindow.classList.add('dark-window');
+	header.classList.add('padding-for-tablet-menu');
+	changeVisuallyHidden([content, this, buton_close]);
+}
+
+function changeVisuallyHidden(elements) {
+	elements.forEach(element => element.classList.toggle('visually-hidden'));
+}
 
 // close mobile menu
 
