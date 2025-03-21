@@ -1031,14 +1031,35 @@ const imageUrls = [
 	},
 ];
 
+// const galleryList = document.querySelector('.galery-list');
+// galleryList.addEventListener('click', function (event) {
+// 	if (window.innerWidth >= 1440 && event.target.nodeName == 'IMG') {
+// 		const imgNumber = event.target.src.split('-')[1].split('.')[0];
+
+// 		const img = document.createElement('img');
+// 		img.src = imageUrls.find(elem => elem.normal.includes(imgNumber)).normal;
+// 		img.srcset = imageUrls.find(elem => elem.normal.includes(imgNumber)).retina + ' 2x';
+
+// 		img.alt = 'Nature in the Ukrainian mountains';
+// 		img.id = 'modal-image';
+// 		img.addEventListener('click', function () {
+// 			modal.close();
+// 		});
+// 		const wrapper = document.createElement('div');
+// 		wrapper.appendChild(img);
+
+// 		const modal = basicLightbox.create(wrapper);
+// 		modal.show();
+// 	}
+// });
+
 const galleryList = document.querySelector('.galery-list');
 galleryList.addEventListener('click', function (event) {
 	if (window.innerWidth >= 1440 && event.target.nodeName == 'IMG') {
-		const imgNumber = event.target.src.split('-')[1].split('.')[0];
+		// const imgNumber = event.target.src.split('-')[1].split('.')[0];
 
 		const img = document.createElement('img');
-		img.src = imageUrls.find(elem => elem.normal.includes(imgNumber)).normal;
-		img.srcset = imageUrls.find(elem => elem.normal.includes(imgNumber)).retina + ' 2x';
+		img.src = `/gallery-modal-third.jpg`;
 
 		img.alt = 'Nature in the Ukrainian mountains';
 		img.id = 'modal-image';
