@@ -1,19 +1,19 @@
-import imageUrlFirst from './img/galery/gallery-modal/gallery-modal-first.jpg';
-import imageUrlFirstRetina from './img/galery/gallery-modal/gallery-modal-first@2x.jpg';
-import imageUrlSecond from './img/galery/gallery-modal//gallery-modal-second.jpg';
-import imageUrlSecondRetina from './img/galery/gallery-modal//gallery-modal-second@2x.jpg';
-import imageUrlThird from './img/galery/gallery-modal/gallery-modal-third.jpg';
-import imageUrlThirdRetina from './img/galery/gallery-modal/gallery-modal-third@2x.jpg';
-import imageUrlFourth from './img/galery/gallery-modal/gallery-modal-fourth.jpg';
-import imageUrlFourthRetina from './img/galery/gallery-modal/gallery-modal-fourth@2x.jpg';
-import imageUrlFifth from './img/galery/gallery-modal/gallery-modal-fifth.jpg';
-import imageUrlFifthRetina from './img/galery/gallery-modal/gallery-modal-fifth@2x.jpg';
-import imageUrlSixth from './img/galery/gallery-modal/gallery-modal-sixth.jpg';
-import imageUrlSixthRetina from './img/galery/gallery-modal/gallery-modal-sixth@2x.jpg';
-import imageUrlSeventh from './img/galery/gallery-modal/gallery-modal-seventh.jpg';
-import imageUrlSeventhRetina from './img/galery/gallery-modal/gallery-modal-seventh@2x.jpg';
-import imageUrlEighth from './img/galery/gallery-modal/gallery-modal-eighth.jpg';
-import imageUrlEighthRetina from './img/galery/gallery-modal/gallery-modal-eighth@2x.jpg';
+// import imageUrlFirst from './img/galery/gallery-modal/gallery-modal-first.jpg';
+// import imageUrlFirstRetina from './img/galery/gallery-modal/gallery-modal-first@2x.jpg';
+// import imageUrlSecond from './img/galery/gallery-modal//gallery-modal-second.jpg';
+// import imageUrlSecondRetina from './img/galery/gallery-modal//gallery-modal-second@2x.jpg';
+// import imageUrlThird from './img/galery/gallery-modal/gallery-modal-third.jpg';
+// import imageUrlThirdRetina from './img/galery/gallery-modal/gallery-modal-third@2x.jpg';
+// import imageUrlFourth from './img/galery/gallery-modal/gallery-modal-fourth.jpg';
+// import imageUrlFourthRetina from './img/galery/gallery-modal/gallery-modal-fourth@2x.jpg';
+// import imageUrlFifth from './img/galery/gallery-modal/gallery-modal-fifth.jpg';
+// import imageUrlFifthRetina from './img/galery/gallery-modal/gallery-modal-fifth@2x.jpg';
+// import imageUrlSixth from './img/galery/gallery-modal/gallery-modal-sixth.jpg';
+// import imageUrlSixthRetina from './img/galery/gallery-modal/gallery-modal-sixth@2x.jpg';
+// import imageUrlSeventh from './img/galery/gallery-modal/gallery-modal-seventh.jpg';
+// import imageUrlSeventhRetina from './img/galery/gallery-modal/gallery-modal-seventh@2x.jpg';
+// import imageUrlEighth from './img/galery/gallery-modal/gallery-modal-eighth.jpg';
+// import imageUrlEighthRetina from './img/galery/gallery-modal/gallery-modal-eighth@2x.jpg';
 
 // open mobile menu
 
@@ -996,40 +996,40 @@ document.querySelector('#galery-button-left').addEventListener('click', function
 
 // open gallery modal
 
-const imageUrls = [
-	{
-		normal: imageUrlFirst,
-		retina: imageUrlFirstRetina,
-	},
-	{
-		normal: imageUrlSecond,
-		retina: imageUrlSecondRetina,
-	},
-	{
-		normal: imageUrlThird,
-		retina: imageUrlThirdRetina,
-	},
-	{
-		normal: imageUrlFourth,
-		retina: imageUrlFourthRetina,
-	},
-	{
-		normal: imageUrlFifth,
-		retina: imageUrlFifthRetina,
-	},
-	{
-		normal: imageUrlSixth,
-		retina: imageUrlSixthRetina,
-	},
-	{
-		normal: imageUrlSeventh,
-		retina: imageUrlSeventhRetina,
-	},
-	{
-		normal: imageUrlEighth,
-		retina: imageUrlEighthRetina,
-	},
-];
+// const imageUrls = [
+// 	{
+// 		normal: imageUrlFirst,
+// 		retina: imageUrlFirstRetina,
+// 	},
+// 	{
+// 		normal: imageUrlSecond,
+// 		retina: imageUrlSecondRetina,
+// 	},
+// 	{
+// 		normal: imageUrlThird,
+// 		retina: imageUrlThirdRetina,
+// 	},
+// 	{
+// 		normal: imageUrlFourth,
+// 		retina: imageUrlFourthRetina,
+// 	},
+// 	{
+// 		normal: imageUrlFifth,
+// 		retina: imageUrlFifthRetina,
+// 	},
+// 	{
+// 		normal: imageUrlSixth,
+// 		retina: imageUrlSixthRetina,
+// 	},
+// 	{
+// 		normal: imageUrlSeventh,
+// 		retina: imageUrlSeventhRetina,
+// 	},
+// 	{
+// 		normal: imageUrlEighth,
+// 		retina: imageUrlEighthRetina,
+// 	},
+// ];
 
 // const galleryList = document.querySelector('.galery-list');
 // galleryList.addEventListener('click', function (event) {
@@ -1056,20 +1056,17 @@ const imageUrls = [
 const galleryList = document.querySelector('.galery-list');
 galleryList.addEventListener('click', function (event) {
 	if (window.innerWidth >= 1440 && event.target.nodeName == 'IMG') {
-		// const imgNumber = event.target.src.split('-')[1].split('.')[0];
+		const imgNumber = event.target.src.split('-')[1].split('.')[0];
+		// img.id = 'modal-image';
+		// img.addEventListener('click', function () {
+		// 	modal.close();
+		// });
 
-		const img = document.createElement('img');
-		img.src = `./gallery-modal-third.jpg`;
-
-		img.alt = 'Nature in the Ukrainian mountains';
-		img.id = 'modal-image';
-		img.addEventListener('click', function () {
-			modal.close();
-		});
-		const wrapper = document.createElement('div');
-		wrapper.appendChild(img);
-
-		const modal = basicLightbox.create(wrapper);
+		const modal = basicLightbox.create(`<img
+							src="./gallery-modal-${imgNumber}.jpg"
+							srcset="./gallery-modal-${imgNumber}@2x.jpg 2x"
+							alt="Nature in the Ukrainian mountains"
+						/>`);
 		modal.show();
 	}
 });
