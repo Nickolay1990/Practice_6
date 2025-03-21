@@ -1059,7 +1059,7 @@ galleryList.addEventListener('click', function (event) {
 		// const imgNumber = event.target.src.split('-')[1].split('.')[0];
 
 		const img = document.createElement('img');
-		img.src = `/gallery-modal-third.jpg`;
+		img.src = `./gallery-modal-third.jpg`;
 
 		img.alt = 'Nature in the Ukrainian mountains';
 		img.id = 'modal-image';
