@@ -1,45 +1,23 @@
-// open mobile menu
+// open and close mobile menu
 
-document.querySelector('#button-menu').addEventListener('click', openMobileMenuHandler);
+const menuButtons = document.querySelectorAll('[data-menuButton]');
+menuButtons.forEach(button => button.addEventListener('click', mobileMenuHandler));
 
-function openMobileMenuHandler() {
-	const menu = document.querySelector('#mobile-menu');
+function mobileMenuHandler() {
 	const content = document.querySelector('.hero .container');
-	const buton_close = document.querySelector('#mobile-menu-close');
 	const darkWindow = document.querySelector('#dark-window');
 	const header = document.querySelector('#pageheader');
+	const menu = document.querySelector('#mobile-menu');
 
-	menu.classList.add('open-menu');
-	darkWindow.classList.add('dark-window');
-	header.classList.add('padding-for-tablet-menu');
-	changeVisuallyHidden([content, this, buton_close]);
+	menu.classList.toggle('open-menu');
+	darkWindow.classList.toggle('dark-window');
+	header.classList.toggle('padding-for-tablet-menu');
+	changeVisuallyHidden([content, ...menuButtons]);
 }
 
 function changeVisuallyHidden(elements) {
 	elements.forEach(element => element.classList.toggle('visually-hidden'));
 }
-
-// close mobile menu
-
-document.querySelector('#mobile-menu-close').addEventListener('click', function () {
-	const menu = document.querySelector('#mobile-menu');
-	const button_menu = document.querySelector('#button-menu');
-	const title = document.querySelector('#pageheader-title');
-	const text = document.querySelector('#pageheader-text');
-	const book = document.querySelector('#pageheader-book');
-	const button_close = document.querySelector('#mobile-menu-close');
-	const darkWindow = document.querySelector('#dark-window');
-	const header = document.querySelector('#pageheader');
-
-	menu.classList.remove('open-menu');
-	button_close.classList.add('visually-hidden');
-	button_menu.classList.remove('visually-hidden');
-	title.classList.remove('visually-hidden');
-	text.classList.remove('visually-hidden');
-	book.classList.remove('visually-hidden');
-	darkWindow.classList.toggle('dark-window');
-	header.classList.toggle('padding-for-tablet-menu');
-});
 
 // open modal window
 
