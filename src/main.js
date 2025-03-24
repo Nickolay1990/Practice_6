@@ -19,19 +19,15 @@ function changeVisuallyHidden(elements) {
 	elements.forEach(element => element.classList.toggle('visually-hidden'));
 }
 
-// open modal window
+// open and close modal window
 
-document.querySelector('#pageheader-book').addEventListener('click', function () {
+const modalButtons = document.querySelectorAll('[data-modal-window]');
+modalButtons.forEach(button => button.addEventListener('click', modalWindowHandler));
+
+function modalWindowHandler() {
 	const modal = document.querySelector('#backdrop');
-	modal.classList.add('is-open');
-});
-
-// close modal window
-
-document.querySelector('#modal-close').addEventListener('click', function () {
-	const modal = document.querySelector('#backdrop');
-	modal.classList.remove('is-open');
-});
+	modal.classList.toggle('is-open');
+}
 
 // swap upcoming tours right
 
