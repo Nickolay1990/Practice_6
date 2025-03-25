@@ -31,42 +31,22 @@ function modalWindowHandler() {
 
 // swap upcoming tours right
 
-document.querySelector('#upcoming-button-right').addEventListener('click', function () {
-	if (window.innerWidth < 768) {
-		const list = document.querySelector('#upcoming-tours-list');
-		const style = window.getComputedStyle(list);
-		const matrix = style.transform;
-		const fill_button_right = document.querySelector('#right-button-scroll');
-		const fill_button_left = document.querySelector('#left-button-scroll');
+const upcomingButtonRight = document.querySelector('#upcoming-button-right');
+const upcomingButtonLeft = document.querySelector('#upcoming-button-left');
+const list = document.querySelector('#upcoming-tours-list');
 
-		if (matrix === 'none') {
-			list.style.transform = 'translate(-326px)';
-			fill_button_left.classList.remove('upcoming-list-item-button-pic-disabled');
-			fill_button_left.classList.add('upcoming-list-item-button-pic');
-		} else {
-			const translate = Number(matrix.split(',')[4]);
-			if (translate === -326) {
-				list.style.transform = 'translate(-652px)';
-				fill_button_right.classList.remove('upcoming-list-item-button-pic');
-				fill_button_right.classList.add('upcoming-list-item-button-pic-disabled');
-			}
-		}
-	} else if (window.innerWidth >= 768) {
-		const list = document.querySelector('#upcoming-tours-list');
-		const style = window.getComputedStyle(list);
-		const matrix = style.transform;
-		const fill_button_right = document.querySelector('#right-button-scroll');
-		const fill_button_left = document.querySelector('#left-button-scroll');
+upcomingButtonRight.addEventListener('click', upcomingButtonRightHandler);
 
-		if (matrix === 'none') {
-			list.style.transform = `translate(-374px)`;
-			fill_button_left.classList.remove('upcoming-list-item-button-pic-disabled');
-			fill_button_left.classList.add('upcoming-list-item-button-pic');
-			fill_button_right.classList.remove('upcoming-list-item-button-pic');
-			fill_button_right.classList.add('upcoming-list-item-button-pic-disabled');
-		}
+let step = innerWidth < 768 ? 326 : 374;
+
+function upcomingButtonRightHandler() {
+	list.style.transform = `translate(-${step}px)`;
+	step += 326;
+	upcomingButtonLeft.disabled = false;
+	if (innerWidth >= 768 || step === 978) {
+		this.disabled = true;
 	}
-});
+}
 
 // swap upcoming tours left
 

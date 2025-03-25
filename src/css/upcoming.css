@@ -217,13 +217,14 @@
 	}
 }
 
-.upcoming-list-item-button-pic-disabled {
-	fill: #a3a5a3;
-}
-
 @media screen and (min-width: 768px) {
 	.upcoming-list-item-button-pic-disabled {
 		width: 12px;
 		height: 21px;
 	}
+}
+
+#upcoming-button-right:disabled > svg,
+#upcoming-button-left:disabled > svg {
+	fill: #a3a5a3;
 }
