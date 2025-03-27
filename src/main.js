@@ -33,58 +33,31 @@ function modalWindowHandler() {
 
 const upcomingButtonRight = document.querySelector('#upcoming-button-right');
 const upcomingButtonLeft = document.querySelector('#upcoming-button-left');
-const list = document.querySelector('#upcoming-tours-list');
 
 upcomingButtonRight.addEventListener('click', upcomingButtonRightHandler);
+upcomingButtonLeft.addEventListener('click', upcomingButtonLeftHandler);
 
-let step = innerWidth < 768 ? 326 : 374;
+const list = document.querySelector('#upcoming-tours-list');
+const step = innerWidth < 768 ? 326 : 374;
+let translate = 0;
 
 function upcomingButtonRightHandler() {
-	list.style.transform = `translate(-${step}px)`;
-	step += 326;
+	translate += step;
+	list.style.transform = `translate(-${translate}px)`;
 	upcomingButtonLeft.disabled = false;
-	if (innerWidth >= 768 || step === 978) {
+	if (innerWidth >= 768 || translate === 652) {
 		this.disabled = true;
 	}
 }
 
-// swap upcoming tours left
-
-document.querySelector('#upcoming-button-left').addEventListener('click', function () {
-	if (window.innerWidth < 768) {
-		const list = document.querySelector('#upcoming-tours-list');
-		const style = window.getComputedStyle(list);
-		const matrix = style.transform;
-		const fill_button_right = document.querySelector('#right-button-scroll');
-		const fill_button_left = document.querySelector('#left-button-scroll');
-
-		if (matrix !== 'none') {
-			const translate = Number(matrix.split(',')[4]);
-			if (translate === -652) {
-				list.style.transform = 'translate(-326px)';
-				fill_button_right.classList.remove('upcoming-list-item-button-pic-disabled');
-				fill_button_right.classList.add('upcoming-list-item-button-pic');
-			} else {
-				list.style.transform = 'none';
-				fill_button_left.classList.remove('upcoming-list-item-button-pic');
-				fill_button_left.classList.add('upcoming-list-item-button-pic-disabled');
-			}
-		}
-	} else if (window.innerWidth >= 768) {
-		const list = document.querySelector('#upcoming-tours-list');
-		const style = window.getComputedStyle(list);
-		const matrix = style.transform;
-		const fill_button_right = document.querySelector('#right-button-scroll');
-		const fill_button_left = document.querySelector('#left-button-scroll');
-		if (matrix !== 'none') {
-			list.style.transform = 'none';
-			fill_button_left.classList.remove('upcoming-list-item-button-pic');
-			fill_button_left.classList.add('upcoming-list-item-button-pic-disabled');
-			fill_button_right.classList.remove('upcoming-list-item-button-pic-disabled');
-			fill_button_right.classList.add('upcoming-list-item-button-pic');
-		}
+function upcomingButtonLeftHandler() {
+	translate -= step;
+	list.style.transform = `translate(-${translate}px)`;
+	upcomingButtonRight.disabled = false;
+	if (translate === 0) {
+		this.disabled = true;
 	}
-});
+}
 
 // resize
 
