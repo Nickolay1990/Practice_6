@@ -29,7 +29,7 @@ function modalWindowHandler() {
 	modal.classList.toggle('is-open');
 }
 
-// swap upcoming tours right
+// swap upcoming tours
 
 const upcomingButtonRight = document.querySelector('#upcoming-button-right');
 const upcomingButtonLeft = document.querySelector('#upcoming-button-left');
@@ -61,92 +61,72 @@ function upcomingButtonLeftHandler() {
 
 // resize
 
-const mobileBreakpoint = window.matchMedia('(max-width: 767px)');
+const breakpoints = [768, 1440, 1920]; // Укажи нужные ширины
 
-mobileBreakpoint.addEventListener('change', updateDisplay);
+breakpoints.forEach(bp => {
+	const maxWidth = window.matchMedia(`(max-width: ${bp - 1}px)`);
+	const minWidth = window.matchMedia(`(min-width: ${bp}px)`);
+	maxWidth.addEventListener('change', resizeHandler);
+	minWidth.addEventListener('change', resizeHandler);
+});
 
-function updateDisplay() {
-	const list = document.querySelector('#upcoming-tours-list');
-	const fill_button_right = document.querySelector('#right-button-scroll');
-	const fill_button_left = document.querySelector('#left-button-scroll');
-	list.style.transform = 'none';
-	fill_button_left.classList.remove('upcoming-list-item-button-pic');
-	fill_button_left.classList.add('upcoming-list-item-button-pic-disabled');
-	fill_button_right.classList.remove('upcoming-list-item-button-pic-disabled');
-	fill_button_right.classList.add('upcoming-list-item-button-pic');
-
-	const element = document.querySelector('.galery-list');
-	const rightButton = document.querySelector('#galery-right-button-scroll');
-	const leftButton = document.querySelector('#galery-left-button-scroll');
-	element.style.transform = 'none';
-	rightButton.classList.remove('upcoming-list-item-button-pic-disabled');
-	rightButton.classList.add('upcoming-list-item-button-pic');
-	leftButton.classList.remove('upcoming-list-item-button-pic');
-	leftButton.classList.add('upcoming-list-item-button-pic-disabled');
+function resizeHandler(event) {
+	if (event.matches) {
+		location.reload();
+	}
 }
 
 // swap upcoming days hoverla
-document.addEventListener('DOMContentLoaded', () => {
-	const modalItems = document.querySelectorAll('#upcoming-modal-hoverla .upcoming-modal-list-item');
-	const first_card = document.querySelector('#first-hoverla');
-	const second_card = document.querySelector('#second-hoverla');
-	const third_card = document.querySelector('#third-hoverla');
 
-	modalItems.forEach(item => {
+document.addEventListener('DOMContentLoaded', swapHoverlaDays);
+
+function swapHoverlaDays() {
+	const modalItems = document.querySelectorAll('#upcoming-modal-hoverla .upcoming-modal-list-item');
+	modalItems.forEach((item, index) => {
 		let startX = 0;
+		let endX = 0;
 
 		item.addEventListener('touchstart', event => {
 			startX = event.touches[0].clientX;
 		});
 
 		item.addEventListener('touchend', event => {
-			const endX = event.changedTouches[0].clientX;
+			endX = event.changedTouches[0].clientX;
 			const diffX = endX - startX;
-			const selectedCard = document.querySelector('#upcoming-modal-hoverla .selected-card-modal-days');
-			const buttons = document.querySelectorAll('#upcoming-modal-hoverla .upcoming-modal-list-item-listbtn-item');
 
-			if (Math.abs(diffX) > 50) {
-				if (diffX > 0) {
-					if (selectedCard == second_card) {
-						first_card.classList.remove('left-position');
-						first_card.classList.add('selected-card-modal-days');
-
-						second_card.classList.remove('selected-card-modal-days');
-						second_card.classList.add('right-position');
-
-						buttons[1].classList.remove('selected-card-days');
-					} else if (selectedCard == third_card) {
-						second_card.classList.remove('left-position');
-						second_card.classList.add('selected-card-modal-days');
-
-						third_card.classList.remove('selected-card-modal-days');
-						third_card.classList.add('right-position');
-
-						buttons[2].classList.remove('selected-card-days');
-					}
-				} else {
-					if (selectedCard == first_card) {
-						first_card.classList.remove('selected-card-modal-days');
-						first_card.classList.add('left-position');
-
-						second_card.classList.remove('right-position');
-						second_card.classList.add('selected-card-modal-days');
-
-						buttons[1].classList.add('selected-card-days');
-					} else if (selectedCard == second_card) {
-						second_card.classList.remove('selected-card-modal-days');
-						second_card.classList.add('left-position');
-
-						third_card.classList.remove('right-position');
-						third_card.classList.add('selected-card-modal-days');
-
-						buttons[2].classList.add('selected-card-days');
-					}
-				}
+			if (diffX < -50 || diffX > 50) {
+				checkCardPosition.call(item, index, diffX);
 			}
 		});
 	});
-});
+}
+
+function checkCardPosition(index, diffX) {
+	const classSelected = 'selected-card-modal-days';
+	const classRight = 'right-position';
+	const classLeft = 'left-position';
+
+	if (this.nextElementSibling && diffX < -50) {
+		moveCard(this, classSelected, classLeft);
+		moveCard(this.nextElementSibling, classRight, classSelected);
+		paintButton(this, index + 1);
+	} else if (this.previousElementSibling && diffX > 50) {
+		moveCard(this, classSelected, classRight);
+		moveCard(this.previousElementSibling, classLeft, classSelected);
+		paintButton(this, index);
+	}
+}
+
+function moveCard(card, removeClass, addClass) {
+	card.classList.remove(removeClass);
+	card.classList.add(addClass);
+}
+
+function paintButton(card, index) {
+	const container = card.closest('.upcoming-modal');
+	const buttons = container.querySelectorAll('.upcoming-modal-list-item-listbtn-item');
+	buttons[index].classList.toggle('selected-card-days');
+}
 
 // swap upcoming days hoverla desctop
 
