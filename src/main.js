@@ -1,18 +1,23 @@
+// DOM elements
+const DOM = {
+	menuButtons: document.querySelectorAll('[data-menuButton]'),
+	content: document.querySelector('.hero .container'),
+	darkWindow: document.querySelector('#dark-window'),
+	header: document.querySelector('#pageheader'),
+	menu: document.querySelector('#mobile-menu'),
+	modalButtons: document.querySelectorAll('[data-modal-window]'),
+	modal: document.querySelector('#backdrop'),
+};
+
 // open and close mobile menu
 
-const menuButtons = document.querySelectorAll('[data-menuButton]');
-menuButtons.forEach(button => button.addEventListener('click', mobileMenuHandler));
+DOM.menuButtons.forEach(button => button.addEventListener('click', mobileMenuHandler));
 
 function mobileMenuHandler() {
-	const content = document.querySelector('.hero .container');
-	const darkWindow = document.querySelector('#dark-window');
-	const header = document.querySelector('#pageheader');
-	const menu = document.querySelector('#mobile-menu');
-
-	menu.classList.toggle('open-menu');
-	darkWindow.classList.toggle('dark-window');
-	header.classList.toggle('padding-for-tablet-menu');
-	changeVisuallyHidden([content, ...menuButtons]);
+	DOM.menu.classList.toggle('open-menu');
+	DOM.darkWindow.classList.toggle('dark-window');
+	DOM.header.classList.toggle('padding-for-tablet-menu');
+	changeVisuallyHidden([DOM.content, ...DOM.menuButtons]);
 }
 
 function changeVisuallyHidden(elements) {
@@ -21,12 +26,10 @@ function changeVisuallyHidden(elements) {
 
 // open and close modal window
 
-const modalButtons = document.querySelectorAll('[data-modal-window]');
-modalButtons.forEach(button => button.addEventListener('click', modalWindowHandler));
+DOM.modalButtons.forEach(button => button.addEventListener('click', modalWindowHandler));
 
 function modalWindowHandler() {
-	const modal = document.querySelector('#backdrop');
-	modal.classList.toggle('is-open');
+	DOM.modal.classList.toggle('is-open');
 }
 
 // swap upcoming tours
@@ -80,6 +83,10 @@ function resizeHandler(event) {
 
 document.addEventListener('DOMContentLoaded', swapHoverlaDays);
 
+const classSelected = 'selected-card-modal-days';
+const classRight = 'right-position';
+const classLeft = 'left-position';
+
 function swapHoverlaDays() {
 	const modalItems = document.querySelectorAll('#upcoming-modal-hoverla .upcoming-modal-list-item');
 	modalItems.forEach((item, index) => {
@@ -102,10 +109,6 @@ function swapHoverlaDays() {
 }
 
 function checkCardPosition(index, diffX) {
-	const classSelected = 'selected-card-modal-days';
-	const classRight = 'right-position';
-	const classLeft = 'left-position';
-
 	if (this.nextElementSibling && diffX < -50) {
 		moveCard(this, classSelected, classLeft);
 		moveCard(this.nextElementSibling, classRight, classSelected);
@@ -130,54 +133,96 @@ function paintButton(card, index) {
 
 // swap upcoming days hoverla desctop
 
-const swapButtons = document.querySelectorAll('#upcoming-modal-hoverla .swap-btn');
+const swapButtonList = document.querySelector('#upcoming-modal-hoverla .upcoming-modal-list-item-listbtn');
 
-swapButtons.forEach(button => {
-	button.addEventListener('click', swapHandler);
-});
+if (innerWidth >= 1440) {
+	swapButtonList.addEventListener('click', swapHandler);
+}
 
 function swapHandler(event) {
-	const buttons = document.querySelectorAll('#upcoming-modal-hoverla .upcoming-modal-list-item-listbtn-item');
-	const first_card = document.querySelector('#first-hoverla');
-	const second_card = document.querySelector('#second-hoverla');
-	const third_card = document.querySelector('#third-hoverla');
+	if (!event.target.classList.contains('upcoming-modal-list-item-listbtn-item')) {
+		return;
+	}
 
-	switch (event.currentTarget) {
-		case swapButtons[0]:
-			buttons[1].classList.remove('selected-card-days');
-			buttons[2].classList.remove('selected-card-days');
+	const buttons = Array.from(this.children);
+	const cards = this.closest('.upcoming-modal').querySelectorAll('.upcoming-modal-list-item');
 
-			first_card.classList.add('selected-card-modal-days');
-			first_card.classList.remove('left-position');
-			second_card.classList.remove('selected-card-modal-days', 'left-position');
-			second_card.classList.add('right-position');
-			third_card.classList.remove('selected-card-modal-days', 'left-position');
-			third_card.classList.add('right-position');
+	paintButtonsDesc(buttons, event.target);
+	swapCardsDesc(cards, buttons.indexOf(event.target));
+}
+
+function paintButtonsDesc(buttons, currentButton) {
+	buttons.forEach(button => button.classList.remove('selected-card-days'));
+
+	for (const button of buttons) {
+		button.classList.add('selected-card-days');
+		if (button === currentButton) {
 			break;
-		case swapButtons[1]:
-			buttons[1].classList.add('selected-card-days');
-			buttons[2].classList.remove('selected-card-days');
-
-			first_card.classList.remove('selected-card-modal-days');
-			first_card.classList.add('left-position');
-			second_card.classList.remove('right-position', 'left-position');
-			second_card.classList.add('selected-card-modal-days');
-			third_card.classList.remove('selected-card-modal-days');
-			third_card.classList.add('right-position');
-			break;
-		case swapButtons[2]:
-			buttons[1].classList.add('selected-card-days');
-			buttons[2].classList.add('selected-card-days');
-
-			first_card.classList.remove('selected-card-modal-days');
-			first_card.classList.add('left-position');
-			second_card.classList.remove('right-position', 'selected-card-modal-days');
-			second_card.classList.add('left-position');
-			third_card.classList.remove('right-position');
-			third_card.classList.add('selected-card-modal-days');
-			break;
+		}
 	}
 }
+
+function swapCardsDesc(cards, index) {
+	let classForAdd = classLeft;
+
+	cards.forEach(card => card.classList.remove(classSelected, classRight, classLeft));
+
+	for (let i = 0; i <= cards.length - 1; i++) {
+		if (i === index) {
+			cards[index].classList.add(classSelected);
+			classForAdd = classRight;
+			continue;
+		}
+		cards[i].classList.add(classForAdd);
+	}
+}
+
+// swapButtons.forEach(button => {
+// 	button.addEventListener('click', swapHandler);
+// });
+
+// function swapHandler(event) {
+// 	const buttons = document.querySelectorAll('#upcoming-modal-hoverla .upcoming-modal-list-item-listbtn-item');
+// 	const first_card = document.querySelector('#first-hoverla');
+// 	const second_card = document.querySelector('#second-hoverla');
+// 	const third_card = document.querySelector('#third-hoverla');
+
+// 	switch (event.currentTarget) {
+// 		case swapButtons[0]:
+// 			buttons[1].classList.remove('selected-card-days');
+// 			buttons[2].classList.remove('selected-card-days');
+
+// 			first_card.classList.add('selected-card-modal-days');
+// 			first_card.classList.remove('left-position');
+// 			second_card.classList.remove('selected-card-modal-days', 'left-position');
+// 			second_card.classList.add('right-position');
+// 			third_card.classList.remove('selected-card-modal-days', 'left-position');
+// 			third_card.classList.add('right-position');
+// 			break;
+// 		case swapButtons[1]:
+// 			buttons[1].classList.add('selected-card-days');
+// 			buttons[2].classList.remove('selected-card-days');
+
+// 			first_card.classList.remove('selected-card-modal-days');
+// 			first_card.classList.add('left-position');
+// 			second_card.classList.remove('right-position', 'left-position');
+// 			second_card.classList.add('selected-card-modal-days');
+// 			third_card.classList.remove('selected-card-modal-days');
+// 			third_card.classList.add('right-position');
+// 			break;
+// 		case swapButtons[2]:
+// 			buttons[1].classList.add('selected-card-days');
+// 			buttons[2].classList.add('selected-card-days');
+
+// 			first_card.classList.remove('selected-card-modal-days');
+// 			first_card.classList.add('left-position');
+// 			second_card.classList.remove('right-position', 'selected-card-modal-days');
+// 			second_card.classList.add('left-position');
+// 			third_card.classList.remove('right-position');
+// 			third_card.classList.add('selected-card-modal-days');
+// 			break;
+// 	}
+// }
 
 // swap upcoming days bukovel
 
