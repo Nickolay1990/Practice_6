@@ -88,7 +88,8 @@ const classRight = 'right-position';
 const classLeft = 'left-position';
 
 function swapHoverlaDays() {
-	const modalItems = document.querySelectorAll('#upcoming-modal-hoverla .upcoming-modal-list-item');
+	const modalItems = document.querySelectorAll('.upcoming-modal-list-item');
+
 	modalItems.forEach((item, index) => {
 		let startX = 0;
 		let endX = 0;
@@ -112,11 +113,11 @@ function checkCardPosition(index, diffX) {
 	if (this.nextElementSibling && diffX < -50) {
 		moveCard(this, classSelected, classLeft);
 		moveCard(this.nextElementSibling, classRight, classSelected);
-		paintButton(this, index + 1);
+		paintButton(index + 1);
 	} else if (this.previousElementSibling && diffX > 50) {
 		moveCard(this, classSelected, classRight);
 		moveCard(this.previousElementSibling, classLeft, classSelected);
-		paintButton(this, index);
+		paintButton(index);
 	}
 }
 
@@ -125,9 +126,9 @@ function moveCard(card, removeClass, addClass) {
 	card.classList.add(addClass);
 }
 
-function paintButton(card, index) {
-	const container = card.closest('.upcoming-modal');
-	const buttons = container.querySelectorAll('.upcoming-modal-list-item-listbtn-item');
+function paintButton(index) {
+	const buttons = document.querySelectorAll('.upcoming-modal-list-item-listbtn-item');
+
 	buttons[index].classList.toggle('selected-card-days');
 }
 
@@ -177,133 +178,192 @@ function swapCardsDesc(cards, index) {
 	}
 }
 
-// swapButtons.forEach(button => {
-// 	button.addEventListener('click', swapHandler);
-// });
+// swap upcoming days bukovel
+// document.addEventListener('DOMContentLoaded', swapHoverlaDays1);
 
-// function swapHandler(event) {
-// 	const buttons = document.querySelectorAll('#upcoming-modal-hoverla .upcoming-modal-list-item-listbtn-item');
-// 	const first_card = document.querySelector('#first-hoverla');
-// 	const second_card = document.querySelector('#second-hoverla');
-// 	const third_card = document.querySelector('#third-hoverla');
+// const classSelected = 'selected-card-modal-days';
+// const classRight = 'right-position';
+// const classLeft = 'left-position';
 
-// 	switch (event.currentTarget) {
-// 		case swapButtons[0]:
-// 			buttons[1].classList.remove('selected-card-days');
-// 			buttons[2].classList.remove('selected-card-days');
+// function swapHoverlaDays1() {
+// 	const modalItems = document.querySelectorAll('#upcoming-modal-bukovel .upcoming-modal-list-item');
 
-// 			first_card.classList.add('selected-card-modal-days');
-// 			first_card.classList.remove('left-position');
-// 			second_card.classList.remove('selected-card-modal-days', 'left-position');
-// 			second_card.classList.add('right-position');
-// 			third_card.classList.remove('selected-card-modal-days', 'left-position');
-// 			third_card.classList.add('right-position');
-// 			break;
-// 		case swapButtons[1]:
-// 			buttons[1].classList.add('selected-card-days');
-// 			buttons[2].classList.remove('selected-card-days');
+// 	modalItems.forEach((item, index) => {
+// 		let startX = 0;
+// 		let endX = 0;
 
-// 			first_card.classList.remove('selected-card-modal-days');
-// 			first_card.classList.add('left-position');
-// 			second_card.classList.remove('right-position', 'left-position');
-// 			second_card.classList.add('selected-card-modal-days');
-// 			third_card.classList.remove('selected-card-modal-days');
-// 			third_card.classList.add('right-position');
-// 			break;
-// 		case swapButtons[2]:
-// 			buttons[1].classList.add('selected-card-days');
-// 			buttons[2].classList.add('selected-card-days');
+// 		item.addEventListener('touchstart', event => {
+// 			startX = event.touches[0].clientX;
+// 		});
 
-// 			first_card.classList.remove('selected-card-modal-days');
-// 			first_card.classList.add('left-position');
-// 			second_card.classList.remove('right-position', 'selected-card-modal-days');
-// 			second_card.classList.add('left-position');
-// 			third_card.classList.remove('right-position');
-// 			third_card.classList.add('selected-card-modal-days');
-// 			break;
-// 	}
+// 		item.addEventListener('touchend', event => {
+// 			endX = event.changedTouches[0].clientX;
+// 			const diffX = endX - startX;
+
+// 			if (diffX < -50 || diffX > 50) {
+// 				checkCardPosition.call(item, index, diffX);
+// 			}
+// 		});
+// 	});
 // }
 
-// swap upcoming days bukovel
+// document.addEventListener('DOMContentLoaded', () => {
+// 	const modalItems = document.querySelectorAll('#upcoming-modal-bukovel .upcoming-modal-list-item');
+// 	const first_card = document.querySelector('#first-bukovel');
+// 	const second_card = document.querySelector('#second-bukovel');
+// 	const third_card = document.querySelector('#third-bukovel');
+// 	const fourd_card = document.querySelector('#fourd-bukovel');
 
-document.addEventListener('DOMContentLoaded', () => {
-	const modalItems = document.querySelectorAll('#upcoming-modal-bukovel .upcoming-modal-list-item');
-	const first_card = document.querySelector('#first-bukovel');
-	const second_card = document.querySelector('#second-bukovel');
-	const third_card = document.querySelector('#third-bukovel');
-	const fourd_card = document.querySelector('#fourd-bukovel');
+// 	modalItems.forEach(item => {
+// 		let startX = 0;
 
-	modalItems.forEach(item => {
-		let startX = 0;
+// 		item.addEventListener('touchstart', event => {
+// 			startX = event.touches[0].clientX;
+// 		});
 
-		item.addEventListener('touchstart', event => {
-			startX = event.touches[0].clientX;
-		});
+// 		item.addEventListener('touchend', event => {
+// 			const endX = event.changedTouches[0].clientX;
+// 			const diffX = endX - startX;
+// 			const selectedCard = document.querySelector('#upcoming-modal-bukovel .selected-card-modal-days');
+// 			const buttons = document.querySelectorAll('#upcoming-modal-bukovel .upcoming-modal-list-item-listbtn-item');
 
-		item.addEventListener('touchend', event => {
-			const endX = event.changedTouches[0].clientX;
-			const diffX = endX - startX;
-			const selectedCard = document.querySelector('#upcoming-modal-bukovel .selected-card-modal-days');
-			const buttons = document.querySelectorAll('#upcoming-modal-bukovel .upcoming-modal-list-item-listbtn-item');
+// 			if (Math.abs(diffX) > 50) {
+// 				if (diffX > 0) {
+// 					if (selectedCard == second_card) {
+// 						first_card.classList.remove('left-position');
+// 						first_card.classList.add('selected-card-modal-days');
 
-			if (Math.abs(diffX) > 50) {
-				if (diffX > 0) {
-					if (selectedCard == second_card) {
-						first_card.classList.remove('left-position');
-						first_card.classList.add('selected-card-modal-days');
+// 						second_card.classList.remove('selected-card-modal-days');
+// 						second_card.classList.add('right-position');
 
-						second_card.classList.remove('selected-card-modal-days');
-						second_card.classList.add('right-position');
+// 						buttons[1].classList.remove('selected-card-days');
+// 					} else if (selectedCard == third_card) {
+// 						second_card.classList.remove('left-position');
+// 						second_card.classList.add('selected-card-modal-days');
 
-						buttons[1].classList.remove('selected-card-days');
-					} else if (selectedCard == third_card) {
-						second_card.classList.remove('left-position');
-						second_card.classList.add('selected-card-modal-days');
+// 						third_card.classList.remove('selected-card-modal-days');
+// 						third_card.classList.add('right-position');
 
-						third_card.classList.remove('selected-card-modal-days');
-						third_card.classList.add('right-position');
+// 						buttons[2].classList.remove('selected-card-days');
+// 					} else if (selectedCard == fourd_card) {
+// 						third_card.classList.remove('left-position');
+// 						third_card.classList.add('selected-card-modal-days');
 
-						buttons[2].classList.remove('selected-card-days');
-					} else if (selectedCard == fourd_card) {
-						third_card.classList.remove('left-position');
-						third_card.classList.add('selected-card-modal-days');
+// 						fourd_card.classList.remove('selected-card-modal-days');
+// 						fourd_card.classList.add('right-position');
 
-						fourd_card.classList.remove('selected-card-modal-days');
-						fourd_card.classList.add('right-position');
+// 						buttons[3].classList.remove('selected-card-days');
+// 					}
+// 				} else {
+// 					if (selectedCard == first_card) {
+// 						first_card.classList.remove('selected-card-modal-days');
+// 						first_card.classList.add('left-position');
 
-						buttons[3].classList.remove('selected-card-days');
-					}
-				} else {
-					if (selectedCard == first_card) {
-						first_card.classList.remove('selected-card-modal-days');
-						first_card.classList.add('left-position');
+// 						second_card.classList.remove('right-position');
+// 						second_card.classList.add('selected-card-modal-days');
 
-						second_card.classList.remove('right-position');
-						second_card.classList.add('selected-card-modal-days');
+// 						buttons[1].classList.add('selected-card-days');
+// 					} else if (selectedCard == second_card) {
+// 						second_card.classList.remove('selected-card-modal-days');
+// 						second_card.classList.add('left-position');
 
-						buttons[1].classList.add('selected-card-days');
-					} else if (selectedCard == second_card) {
-						second_card.classList.remove('selected-card-modal-days');
-						second_card.classList.add('left-position');
+// 						third_card.classList.remove('right-position');
+// 						third_card.classList.add('selected-card-modal-days');
 
-						third_card.classList.remove('right-position');
-						third_card.classList.add('selected-card-modal-days');
+// 						buttons[2].classList.add('selected-card-days');
+// 					} else if (selectedCard == third_card) {
+// 						third_card.classList.remove('selected-card-modal-days');
+// 						third_card.classList.add('left-position');
 
-						buttons[2].classList.add('selected-card-days');
-					} else if (selectedCard == third_card) {
-						third_card.classList.remove('selected-card-modal-days');
-						third_card.classList.add('left-position');
+// 						fourd_card.classList.remove('right-position');
+// 						fourd_card.classList.add('selected-card-modal-days');
 
-						fourd_card.classList.remove('right-position');
-						fourd_card.classList.add('selected-card-modal-days');
+// 						buttons[3].classList.add('selected-card-days');
+// 					}
+// 				}
+// 			}
+// 		});
+// 	});
+// });
 
-						buttons[3].classList.add('selected-card-days');
-					}
-				}
-			}
-		});
-	});
-});
+// document.addEventListener('DOMContentLoaded', () => {
+// 	const modalItems = document.querySelectorAll('#upcoming-modal-bukovel .upcoming-modal-list-item');
+// 	const first_card = document.querySelector('#first-bukovel');
+// 	const second_card = document.querySelector('#second-bukovel');
+// 	const third_card = document.querySelector('#third-bukovel');
+// 	const fourd_card = document.querySelector('#fourd-bukovel');
+
+// 	modalItems.forEach(item => {
+// 		let startX = 0;
+
+// 		item.addEventListener('touchstart', event => {
+// 			startX = event.touches[0].clientX;
+// 		});
+
+// 		item.addEventListener('touchend', event => {
+// 			const endX = event.changedTouches[0].clientX;
+// 			const diffX = endX - startX;
+// 			const selectedCard = document.querySelector('#upcoming-modal-bukovel .selected-card-modal-days');
+// 			const buttons = document.querySelectorAll('#upcoming-modal-bukovel .upcoming-modal-list-item-listbtn-item');
+
+// 			if (Math.abs(diffX) > 50) {
+// 				if (diffX > 0) {
+// 					if (selectedCard == second_card) {
+// 						first_card.classList.remove('left-position');
+// 						first_card.classList.add('selected-card-modal-days');
+
+// 						second_card.classList.remove('selected-card-modal-days');
+// 						second_card.classList.add('right-position');
+
+// 						buttons[1].classList.remove('selected-card-days');
+// 					} else if (selectedCard == third_card) {
+// 						second_card.classList.remove('left-position');
+// 						second_card.classList.add('selected-card-modal-days');
+
+// 						third_card.classList.remove('selected-card-modal-days');
+// 						third_card.classList.add('right-position');
+
+// 						buttons[2].classList.remove('selected-card-days');
+// 					} else if (selectedCard == fourd_card) {
+// 						third_card.classList.remove('left-position');
+// 						third_card.classList.add('selected-card-modal-days');
+
+// 						fourd_card.classList.remove('selected-card-modal-days');
+// 						fourd_card.classList.add('right-position');
+
+// 						buttons[3].classList.remove('selected-card-days');
+// 					}
+// 				} else {
+// 					if (selectedCard == first_card) {
+// 						first_card.classList.remove('selected-card-modal-days');
+// 						first_card.classList.add('left-position');
+
+// 						second_card.classList.remove('right-position');
+// 						second_card.classList.add('selected-card-modal-days');
+
+// 						buttons[1].classList.add('selected-card-days');
+// 					} else if (selectedCard == second_card) {
+// 						second_card.classList.remove('selected-card-modal-days');
+// 						second_card.classList.add('left-position');
+
+// 						third_card.classList.remove('right-position');
+// 						third_card.classList.add('selected-card-modal-days');
+
+// 						buttons[2].classList.add('selected-card-days');
+// 					} else if (selectedCard == third_card) {
+// 						third_card.classList.remove('selected-card-modal-days');
+// 						third_card.classList.add('left-position');
+
+// 						fourd_card.classList.remove('right-position');
+// 						fourd_card.classList.add('selected-card-modal-days');
+
+// 						buttons[3].classList.add('selected-card-days');
+// 					}
+// 				}
+// 			}
+// 		});
+// 	});
+// });
 
 // swap upcoming days bukovel desctop
 
