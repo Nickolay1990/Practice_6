@@ -7,6 +7,9 @@ const DOM = {
 	menu: document.querySelector('#mobile-menu'),
 	modalButtons: document.querySelectorAll('[data-modal-window]'),
 	modal: document.querySelector('#backdrop'),
+	upcomingButtonRight: document.querySelector('#upcoming-button-right'),
+	upcomingButtonLeft: document.querySelector('#upcoming-button-left'),
+	upcomingList: document.querySelector('#upcoming-tours-list'),
 };
 
 // open and close mobile menu
@@ -34,20 +37,16 @@ function modalWindowHandler() {
 
 // swap upcoming tours
 
-const upcomingButtonRight = document.querySelector('#upcoming-button-right');
-const upcomingButtonLeft = document.querySelector('#upcoming-button-left');
+DOM.upcomingButtonRight.addEventListener('click', upcomingButtonRightHandler);
+DOM.upcomingButtonLeft.addEventListener('click', upcomingButtonLeftHandler);
 
-upcomingButtonRight.addEventListener('click', upcomingButtonRightHandler);
-upcomingButtonLeft.addEventListener('click', upcomingButtonLeftHandler);
-
-const list = document.querySelector('#upcoming-tours-list');
 const step = innerWidth < 768 ? 326 : 374;
 let translate = 0;
 
 function upcomingButtonRightHandler() {
 	translate += step;
-	list.style.transform = `translate(-${translate}px)`;
-	upcomingButtonLeft.disabled = false;
+	DOM.upcomingList.style.transform = `translate(-${translate}px)`;
+	DOM.upcomingButtonLeft.disabled = false;
 	if (innerWidth >= 768 || translate === 652) {
 		this.disabled = true;
 	}
@@ -55,8 +54,8 @@ function upcomingButtonRightHandler() {
 
 function upcomingButtonLeftHandler() {
 	translate -= step;
-	list.style.transform = `translate(-${translate}px)`;
-	upcomingButtonRight.disabled = false;
+	DOM.upcomingList.style.transform = `translate(-${translate}px)`;
+	DOM.upcomingButtonRight.disabled = false;
 	if (translate === 0) {
 		this.disabled = true;
 	}
@@ -64,11 +63,12 @@ function upcomingButtonLeftHandler() {
 
 // resize
 
-const breakpoints = [768, 1440, 1920]; // Укажи нужные ширины
+const breakpoints = [768, 1440, 1920];
 
 breakpoints.forEach(bp => {
 	const maxWidth = window.matchMedia(`(max-width: ${bp - 1}px)`);
 	const minWidth = window.matchMedia(`(min-width: ${bp}px)`);
+
 	maxWidth.addEventListener('change', resizeHandler);
 	minWidth.addEventListener('change', resizeHandler);
 });
@@ -79,7 +79,7 @@ function resizeHandler(event) {
 	}
 }
 
-// swap upcoming days hoverla
+// swap upcoming days mobile
 
 document.addEventListener('DOMContentLoaded', swapHoverlaDays);
 
@@ -132,12 +132,12 @@ function paintButton(index) {
 	buttons[index].classList.toggle('selected-card-days');
 }
 
-// swap upcoming days hoverla desctop
+// swap upcoming days desctop
 
-const swapButtonList = document.querySelector('#upcoming-modal-hoverla .upcoming-modal-list-item-listbtn');
+const swapButtonList = document.querySelectorAll('.upcoming-modal-list-item-listbtn');
 
 if (innerWidth >= 1440) {
-	swapButtonList.addEventListener('click', swapHandler);
+	swapButtonList.forEach(button => button.addEventListener('click', swapHandler));
 }
 
 function swapHandler(event) {
@@ -148,297 +148,31 @@ function swapHandler(event) {
 	const buttons = Array.from(this.children);
 	const cards = this.closest('.upcoming-modal').querySelectorAll('.upcoming-modal-list-item');
 
-	paintButtonsDesc(buttons, event.target);
+	paintButtonsDesc(buttons, buttons.indexOf(event.target));
 	swapCardsDesc(cards, buttons.indexOf(event.target));
 }
 
-function paintButtonsDesc(buttons, currentButton) {
-	buttons.forEach(button => button.classList.remove('selected-card-days'));
-
-	for (const button of buttons) {
-		button.classList.add('selected-card-days');
-		if (button === currentButton) {
-			break;
+function paintButtonsDesc(buttons, index) {
+	buttons.forEach((button, i) => {
+		button.classList.remove('selected-card-days');
+		if (i > index) {
+			return;
 		}
-	}
+		button.classList.add('selected-card-days');
+	});
 }
 
 function swapCardsDesc(cards, index) {
 	let classForAdd = classLeft;
-
-	cards.forEach(card => card.classList.remove(classSelected, classRight, classLeft));
-
-	for (let i = 0; i <= cards.length - 1; i++) {
+	cards.forEach((card, i) => {
+		card.classList.remove(classSelected, classRight, classLeft);
 		if (i === index) {
-			cards[index].classList.add(classSelected);
 			classForAdd = classRight;
-			continue;
+			card.classList.add(classSelected);
+			return;
 		}
-		cards[i].classList.add(classForAdd);
-	}
-}
-
-// swap upcoming days bukovel
-// document.addEventListener('DOMContentLoaded', swapHoverlaDays1);
-
-// const classSelected = 'selected-card-modal-days';
-// const classRight = 'right-position';
-// const classLeft = 'left-position';
-
-// function swapHoverlaDays1() {
-// 	const modalItems = document.querySelectorAll('#upcoming-modal-bukovel .upcoming-modal-list-item');
-
-// 	modalItems.forEach((item, index) => {
-// 		let startX = 0;
-// 		let endX = 0;
-
-// 		item.addEventListener('touchstart', event => {
-// 			startX = event.touches[0].clientX;
-// 		});
-
-// 		item.addEventListener('touchend', event => {
-// 			endX = event.changedTouches[0].clientX;
-// 			const diffX = endX - startX;
-
-// 			if (diffX < -50 || diffX > 50) {
-// 				checkCardPosition.call(item, index, diffX);
-// 			}
-// 		});
-// 	});
-// }
-
-// document.addEventListener('DOMContentLoaded', () => {
-// 	const modalItems = document.querySelectorAll('#upcoming-modal-bukovel .upcoming-modal-list-item');
-// 	const first_card = document.querySelector('#first-bukovel');
-// 	const second_card = document.querySelector('#second-bukovel');
-// 	const third_card = document.querySelector('#third-bukovel');
-// 	const fourd_card = document.querySelector('#fourd-bukovel');
-
-// 	modalItems.forEach(item => {
-// 		let startX = 0;
-
-// 		item.addEventListener('touchstart', event => {
-// 			startX = event.touches[0].clientX;
-// 		});
-
-// 		item.addEventListener('touchend', event => {
-// 			const endX = event.changedTouches[0].clientX;
-// 			const diffX = endX - startX;
-// 			const selectedCard = document.querySelector('#upcoming-modal-bukovel .selected-card-modal-days');
-// 			const buttons = document.querySelectorAll('#upcoming-modal-bukovel .upcoming-modal-list-item-listbtn-item');
-
-// 			if (Math.abs(diffX) > 50) {
-// 				if (diffX > 0) {
-// 					if (selectedCard == second_card) {
-// 						first_card.classList.remove('left-position');
-// 						first_card.classList.add('selected-card-modal-days');
-
-// 						second_card.classList.remove('selected-card-modal-days');
-// 						second_card.classList.add('right-position');
-
-// 						buttons[1].classList.remove('selected-card-days');
-// 					} else if (selectedCard == third_card) {
-// 						second_card.classList.remove('left-position');
-// 						second_card.classList.add('selected-card-modal-days');
-
-// 						third_card.classList.remove('selected-card-modal-days');
-// 						third_card.classList.add('right-position');
-
-// 						buttons[2].classList.remove('selected-card-days');
-// 					} else if (selectedCard == fourd_card) {
-// 						third_card.classList.remove('left-position');
-// 						third_card.classList.add('selected-card-modal-days');
-
-// 						fourd_card.classList.remove('selected-card-modal-days');
-// 						fourd_card.classList.add('right-position');
-
-// 						buttons[3].classList.remove('selected-card-days');
-// 					}
-// 				} else {
-// 					if (selectedCard == first_card) {
-// 						first_card.classList.remove('selected-card-modal-days');
-// 						first_card.classList.add('left-position');
-
-// 						second_card.classList.remove('right-position');
-// 						second_card.classList.add('selected-card-modal-days');
-
-// 						buttons[1].classList.add('selected-card-days');
-// 					} else if (selectedCard == second_card) {
-// 						second_card.classList.remove('selected-card-modal-days');
-// 						second_card.classList.add('left-position');
-
-// 						third_card.classList.remove('right-position');
-// 						third_card.classList.add('selected-card-modal-days');
-
-// 						buttons[2].classList.add('selected-card-days');
-// 					} else if (selectedCard == third_card) {
-// 						third_card.classList.remove('selected-card-modal-days');
-// 						third_card.classList.add('left-position');
-
-// 						fourd_card.classList.remove('right-position');
-// 						fourd_card.classList.add('selected-card-modal-days');
-
-// 						buttons[3].classList.add('selected-card-days');
-// 					}
-// 				}
-// 			}
-// 		});
-// 	});
-// });
-
-// document.addEventListener('DOMContentLoaded', () => {
-// 	const modalItems = document.querySelectorAll('#upcoming-modal-bukovel .upcoming-modal-list-item');
-// 	const first_card = document.querySelector('#first-bukovel');
-// 	const second_card = document.querySelector('#second-bukovel');
-// 	const third_card = document.querySelector('#third-bukovel');
-// 	const fourd_card = document.querySelector('#fourd-bukovel');
-
-// 	modalItems.forEach(item => {
-// 		let startX = 0;
-
-// 		item.addEventListener('touchstart', event => {
-// 			startX = event.touches[0].clientX;
-// 		});
-
-// 		item.addEventListener('touchend', event => {
-// 			const endX = event.changedTouches[0].clientX;
-// 			const diffX = endX - startX;
-// 			const selectedCard = document.querySelector('#upcoming-modal-bukovel .selected-card-modal-days');
-// 			const buttons = document.querySelectorAll('#upcoming-modal-bukovel .upcoming-modal-list-item-listbtn-item');
-
-// 			if (Math.abs(diffX) > 50) {
-// 				if (diffX > 0) {
-// 					if (selectedCard == second_card) {
-// 						first_card.classList.remove('left-position');
-// 						first_card.classList.add('selected-card-modal-days');
-
-// 						second_card.classList.remove('selected-card-modal-days');
-// 						second_card.classList.add('right-position');
-
-// 						buttons[1].classList.remove('selected-card-days');
-// 					} else if (selectedCard == third_card) {
-// 						second_card.classList.remove('left-position');
-// 						second_card.classList.add('selected-card-modal-days');
-
-// 						third_card.classList.remove('selected-card-modal-days');
-// 						third_card.classList.add('right-position');
-
-// 						buttons[2].classList.remove('selected-card-days');
-// 					} else if (selectedCard == fourd_card) {
-// 						third_card.classList.remove('left-position');
-// 						third_card.classList.add('selected-card-modal-days');
-
-// 						fourd_card.classList.remove('selected-card-modal-days');
-// 						fourd_card.classList.add('right-position');
-
-// 						buttons[3].classList.remove('selected-card-days');
-// 					}
-// 				} else {
-// 					if (selectedCard == first_card) {
-// 						first_card.classList.remove('selected-card-modal-days');
-// 						first_card.classList.add('left-position');
-
-// 						second_card.classList.remove('right-position');
-// 						second_card.classList.add('selected-card-modal-days');
-
-// 						buttons[1].classList.add('selected-card-days');
-// 					} else if (selectedCard == second_card) {
-// 						second_card.classList.remove('selected-card-modal-days');
-// 						second_card.classList.add('left-position');
-
-// 						third_card.classList.remove('right-position');
-// 						third_card.classList.add('selected-card-modal-days');
-
-// 						buttons[2].classList.add('selected-card-days');
-// 					} else if (selectedCard == third_card) {
-// 						third_card.classList.remove('selected-card-modal-days');
-// 						third_card.classList.add('left-position');
-
-// 						fourd_card.classList.remove('right-position');
-// 						fourd_card.classList.add('selected-card-modal-days');
-
-// 						buttons[3].classList.add('selected-card-days');
-// 					}
-// 				}
-// 			}
-// 		});
-// 	});
-// });
-
-// swap upcoming days bukovel desctop
-
-const swapButtonsBukovel = document.querySelectorAll('#upcoming-modal-bukovel .swap-btn');
-
-swapButtonsBukovel.forEach(button => {
-	button.addEventListener('click', swapHandlerBukovel);
-});
-
-function swapHandlerBukovel(event) {
-	const buttons = document.querySelectorAll('#upcoming-modal-bukovel .upcoming-modal-list-item-listbtn-item');
-
-	const first_card = document.querySelector('#first-bukovel');
-	const second_card = document.querySelector('#second-bukovel');
-	const third_card = document.querySelector('#third-bukovel');
-	const fourth_card = document.querySelector('#fourd-bukovel');
-
-	switch (event.target) {
-		case swapButtonsBukovel[0]:
-			buttons[1].classList.remove('selected-card-days');
-			buttons[2].classList.remove('selected-card-days');
-			buttons[3].classList.remove('selected-card-days');
-
-			first_card.classList.add('selected-card-modal-days');
-			first_card.classList.remove('left-position');
-			second_card.classList.remove('selected-card-modal-days', 'left-position');
-			second_card.classList.add('right-position');
-			third_card.classList.remove('selected-card-modal-days', 'left-position');
-			third_card.classList.add('right-position');
-			fourth_card.classList.remove('selected-card-modal-days', 'left-position');
-			fourth_card.classList.add('right-position');
-			break;
-		case swapButtonsBukovel[1]:
-			buttons[1].classList.add('selected-card-days');
-			buttons[2].classList.remove('selected-card-days');
-			buttons[3].classList.remove('selected-card-days');
-
-			first_card.classList.remove('selected-card-modal-days');
-			first_card.classList.add('left-position');
-			second_card.classList.remove('right-position', 'left-position');
-			second_card.classList.add('selected-card-modal-days');
-			third_card.classList.remove('selected-card-modal-days', 'left-position');
-			third_card.classList.add('right-position');
-			fourth_card.classList.remove('selected-card-modal-days');
-			fourth_card.classList.add('right-position');
-			break;
-		case swapButtonsBukovel[2]:
-			buttons[1].classList.add('selected-card-days');
-			buttons[2].classList.add('selected-card-days');
-			buttons[3].classList.remove('selected-card-days');
-
-			first_card.classList.remove('selected-card-modal-days');
-			first_card.classList.add('left-position');
-			second_card.classList.remove('right-position', 'selected-card-modal-days');
-			second_card.classList.add('left-position');
-			third_card.classList.remove('right-position', 'left-position');
-			third_card.classList.add('selected-card-modal-days');
-			fourth_card.classList.remove('selected-card-modal-days');
-			fourth_card.classList.add('right-position');
-			break;
-		case swapButtonsBukovel[3]:
-			buttons[1].classList.add('selected-card-days');
-			buttons[2].classList.add('selected-card-days');
-			buttons[3].classList.add('selected-card-days');
-
-			first_card.classList.remove('selected-card-modal-days');
-			first_card.classList.add('left-position');
-			second_card.classList.remove('right-position', 'selected-card-modal-days');
-			second_card.classList.add('left-position');
-			third_card.classList.remove('right-position', 'selected-card-modal-days');
-			third_card.classList.add('left-position');
-			fourth_card.classList.remove('right-position');
-			fourth_card.classList.add('selected-card-modal-days');
-			break;
-	}
+		card.classList.add(classForAdd);
+	});
 }
 
 // swap upcoming days carpathians
