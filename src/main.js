@@ -10,6 +10,8 @@ const DOM = {
 	upcomingButtonRight: document.querySelector('#upcoming-button-right'),
 	upcomingButtonLeft: document.querySelector('#upcoming-button-left'),
 	upcomingList: document.querySelector('#upcoming-tours-list'),
+	upcomingModalItems: document.querySelectorAll('.upcoming-modal-list-item'),
+	upcomingNavButtons: document.querySelectorAll('.upcoming-modal-list-item-listbtn-item'),
 };
 
 // open and close mobile menu
@@ -81,16 +83,14 @@ function resizeHandler(event) {
 
 // swap upcoming days mobile
 
-document.addEventListener('DOMContentLoaded', swapHoverlaDays);
+document.addEventListener('DOMContentLoaded', swapDays);
 
 const classSelected = 'selected-card-modal-days';
 const classRight = 'right-position';
 const classLeft = 'left-position';
 
-function swapHoverlaDays() {
-	const modalItems = document.querySelectorAll('.upcoming-modal-list-item');
-
-	modalItems.forEach((item, index) => {
+function swapDays() {
+	DOM.upcomingModalItems.forEach((item, index) => {
 		let startX = 0;
 		let endX = 0;
 
@@ -127,9 +127,7 @@ function moveCard(card, removeClass, addClass) {
 }
 
 function paintButton(index) {
-	const buttons = document.querySelectorAll('.upcoming-modal-list-item-listbtn-item');
-
-	buttons[index].classList.toggle('selected-card-days');
+	DOM.upcomingNavButtons[index].classList.toggle('selected-card-days');
 }
 
 // swap upcoming days desctop
@@ -174,138 +172,6 @@ function swapCardsDesc(cards, index) {
 		card.classList.add(classForAdd);
 	});
 }
-
-// swap upcoming days carpathians
-
-document.addEventListener('DOMContentLoaded', () => {
-	const modalItems = document.querySelectorAll('#upcoming-modal-carpathians .upcoming-modal-list-item');
-	const first_card = document.querySelector('#first-carpathians');
-	const second_card = document.querySelector('#second-carpathians');
-	const third_card = document.querySelector('#third-carpathians');
-	const fourd_card = document.querySelector('#fourd-carpathians');
-	const fived_card = document.querySelector('#fived-carpathians');
-	const sixed_card = document.querySelector('#sixed-carpathians');
-	const sevened_card = document.querySelector('#sevened-carpathians');
-
-	modalItems.forEach(item => {
-		let startX = 0;
-
-		item.addEventListener('touchstart', event => {
-			startX = event.touches[0].clientX;
-		});
-
-		item.addEventListener('touchend', event => {
-			const endX = event.changedTouches[0].clientX;
-			const diffX = endX - startX;
-			const selectedCard = document.querySelector('#upcoming-modal-carpathians .selected-card-modal-days');
-			const buttons = document.querySelectorAll('#upcoming-modal-carpathians .upcoming-modal-list-item-listbtn-item');
-
-			if (Math.abs(diffX) > 50) {
-				if (diffX > 0) {
-					if (selectedCard == second_card) {
-						first_card.classList.remove('left-position');
-						first_card.classList.add('selected-card-modal-days');
-
-						second_card.classList.remove('selected-card-modal-days');
-						second_card.classList.add('right-position');
-
-						buttons[1].classList.remove('selected-card-days');
-					} else if (selectedCard == third_card) {
-						second_card.classList.remove('left-position');
-						second_card.classList.add('selected-card-modal-days');
-
-						third_card.classList.remove('selected-card-modal-days');
-						third_card.classList.add('right-position');
-
-						buttons[2].classList.remove('selected-card-days');
-					} else if (selectedCard == fourd_card) {
-						third_card.classList.remove('left-position');
-						third_card.classList.add('selected-card-modal-days');
-
-						fourd_card.classList.remove('selected-card-modal-days');
-						fourd_card.classList.add('right-position');
-
-						buttons[3].classList.remove('selected-card-days');
-					} else if (selectedCard == fived_card) {
-						fourd_card.classList.remove('left-position');
-						fourd_card.classList.add('selected-card-modal-days');
-
-						fived_card.classList.remove('selected-card-modal-days');
-						fived_card.classList.add('right-position');
-
-						buttons[4].classList.remove('selected-card-days');
-					} else if (selectedCard == sixed_card) {
-						fived_card.classList.remove('left-position');
-						fived_card.classList.add('selected-card-modal-days');
-
-						sixed_card.classList.remove('selected-card-modal-days');
-						sixed_card.classList.add('right-position');
-
-						buttons[5].classList.remove('selected-card-days');
-					} else if (selectedCard == sevened_card) {
-						sixed_card.classList.remove('left-position');
-						sixed_card.classList.add('selected-card-modal-days');
-
-						sevened_card.classList.remove('selected-card-modal-days');
-						sevened_card.classList.add('right-position');
-
-						buttons[6].classList.remove('selected-card-days');
-					}
-				} else {
-					if (selectedCard == first_card) {
-						first_card.classList.remove('selected-card-modal-days');
-						first_card.classList.add('left-position');
-
-						second_card.classList.remove('right-position');
-						second_card.classList.add('selected-card-modal-days');
-
-						buttons[1].classList.add('selected-card-days');
-					} else if (selectedCard == second_card) {
-						second_card.classList.remove('selected-card-modal-days');
-						second_card.classList.add('left-position');
-
-						third_card.classList.remove('right-position');
-						third_card.classList.add('selected-card-modal-days');
-
-						buttons[2].classList.add('selected-card-days');
-					} else if (selectedCard == third_card) {
-						third_card.classList.remove('selected-card-modal-days');
-						third_card.classList.add('left-position');
-
-						fourd_card.classList.remove('right-position');
-						fourd_card.classList.add('selected-card-modal-days');
-
-						buttons[3].classList.add('selected-card-days');
-					} else if (selectedCard == fourd_card) {
-						fourd_card.classList.remove('selected-card-modal-days');
-						fourd_card.classList.add('left-position');
-
-						fived_card.classList.remove('right-position');
-						fived_card.classList.add('selected-card-modal-days');
-
-						buttons[4].classList.add('selected-card-days');
-					} else if (selectedCard == fived_card) {
-						fived_card.classList.remove('selected-card-modal-days');
-						fived_card.classList.add('left-position');
-
-						sixed_card.classList.remove('right-position');
-						sixed_card.classList.add('selected-card-modal-days');
-
-						buttons[5].classList.add('selected-card-days');
-					} else if (selectedCard == sixed_card) {
-						sixed_card.classList.remove('selected-card-modal-days');
-						sixed_card.classList.add('left-position');
-
-						sevened_card.classList.remove('right-position');
-						sevened_card.classList.add('selected-card-modal-days');
-
-						buttons[6].classList.add('selected-card-days');
-					}
-				}
-			}
-		});
-	});
-});
 
 // swap upcoming days carpathians desctop
 
