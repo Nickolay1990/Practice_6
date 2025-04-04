@@ -238,9 +238,9 @@
 					/>
 				</picture>
 				<div class="upcoming-block">
-					<h3 class="upcoming-block-title">Ascent to Hoverla</h3>
+					<h3 class="upcoming-block-title">Ascent to Hoverla</h3>
 					<p class="upcoming-block-text">From UAH 4,499/person</p>
-					<button class="upcoming-block-button" id="book-hoverla">MORE DETAILS</button>
+					<button class="upcoming-block-button" id="book-hoverla" data-open-modal="hoverla">MORE DETAILS</button>
 				</div>
 			</li>
 
@@ -265,7 +265,7 @@
 				<div class="upcoming-block">
 					<h3 class="upcoming-block-title">Ski tour to Bukovel</h3>
 					<p class="upcoming-block-text">From UAH 7,499/person</p>
-					<button class="upcoming-block-button" id="book-bukovel">MORE DETAILS</button>
+					<button class="upcoming-block-button" id="book-bukovel" data-open-modal="bukovel">MORE DETAILS</button>
 				</div>
 			</li>
 
@@ -293,7 +293,9 @@
 				<div class="upcoming-block">
 					<h3 class="upcoming-block-title">Week in Carpathians</h3>
 					<p class="upcoming-block-text">From UAH 9,999/person</p>
-					<button class="upcoming-block-button" id="book-carpathians">MORE DETAILS</button>
+					<button class="upcoming-block-button" id="book-carpathians" data-open-modal="carpathians">
+						MORE DETAILS
+					</button>
 				</div>
 			</li>
 		</ul>
@@ -828,7 +830,7 @@
 		<!-- ===================== upcoming modal =========================== -->
 		<!-- hoverla -->
 
-<div class="upcoming-modal" id="upcoming-modal-hoverla">
+<div class="upcoming-modal" id="upcoming-modal-hoverla" data-modal="hoverla">
 	<button type="button" class="upcoming-modal-closebtn" id="upcoming-modal-closebtn-hoverla">
 		<svg class="mobile-menu-close-pic" width="15" height="15">
 			<use href="/Practice_6/assets/icons.svg#icon-close"></use>
@@ -897,7 +899,7 @@
 
 <!-- bukovel -->
 
-<div class="upcoming-modal" id="upcoming-modal-bukovel">
+<div class="upcoming-modal" id="upcoming-modal-bukovel" data-modal="bukovel">
 	<button type="button" class="upcoming-modal-closebtn" id="upcoming-modal-closebtn-bukovel">
 		<svg class="mobile-menu-close-pic" width="15" height="15">
 			<use href="/Practice_6/assets/icons.svg#icon-close"></use>
@@ -979,7 +981,7 @@
 
 <!-- Carpathians -->
 
-<div class="upcoming-modal" id="upcoming-modal-carpathians">
+<div class="upcoming-modal" id="upcoming-modal-carpathians" data-modal="carpathians">
 	<button type="button" class="upcoming-modal-closebtn" id="upcoming-modal-closebtn-carpathians">
 		<svg class="mobile-menu-close-pic" width="15" height="15">
 			<use href="/Practice_6/assets/icons.svg#icon-close"></use>
