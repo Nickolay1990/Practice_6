@@ -13,6 +13,7 @@ const DOM = {
 	upcomingModalItems: document.querySelectorAll('.upcoming-modal-list-item'),
 	upcomingNavButtons: document.querySelectorAll('.upcoming-modal-list-item-listbtn-item'),
 	swapCardButtonsList: document.querySelectorAll('.upcoming-modal-list-item-listbtn'),
+	upcomingOpenModalButtons: document.querySelectorAll('[data-open-modal]'),
 };
 
 // open and close mobile menu
@@ -172,26 +173,16 @@ function swapCardsDesc(cards, index) {
 	});
 }
 
-// open upcoming days hoverla
+// open upcoming days
 
-document.querySelector('#book-hoverla').addEventListener('click', function () {
-	const modal_hoverla = document.querySelector('#upcoming-modal-hoverla');
-	modal_hoverla.classList.add('is-open');
+DOM.upcomingOpenModalButtons.forEach(button => {
+	button.addEventListener('click', openUpcomingModal);
 });
 
-// open upcoming days bukovel
-
-document.querySelector('#book-bukovel').addEventListener('click', function () {
-	const modal_bukovel = document.querySelector('#upcoming-modal-bukovel');
-	modal_bukovel.classList.add('is-open');
-});
-
-// open upcoming days carpathians
-
-document.querySelector('#book-carpathians').addEventListener('click', function () {
-	const modal_carpathians = document.querySelector('#upcoming-modal-carpathians');
-	modal_carpathians.classList.add('is-open');
-});
+function openUpcomingModal() {
+	const modal = document.querySelector(`[data-modal="${this.dataset.openModal}"]`);
+	modal.classList.toggle('is-open');
+}
 
 // close upcoming days hoverla
 
