@@ -182,15 +182,6 @@ function openUpcomingModal() {
 	modal.classList.toggle('is-open');
 }
 
-// book from upcoming
-
-document.querySelectorAll('.upcoming-modal-bookbtn').forEach(button => {
-	button.addEventListener('click', function () {
-		const backdrop = document.querySelector('#backdrop');
-		backdrop.classList.add('is-open');
-	});
-});
-
 // reviews show back photo
 
 document.querySelectorAll('.reviews-card-review-button').forEach(button => {
