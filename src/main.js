@@ -14,6 +14,8 @@ const DOM = {
 	upcomingNavButtons: document.querySelectorAll('.upcoming-modal-list-item-listbtn-item'),
 	swapCardButtonsList: document.querySelectorAll('.upcoming-modal-list-item-listbtn'),
 	upcomingToggleModalButtons: document.querySelectorAll('[data-toggle-modal]'),
+	reviewsBlock: document.querySelector('.reviews-block'),
+	reviewsCards: document.querySelectorAll('.reviews-inner'),
 };
 
 // open and close mobile menu
@@ -184,24 +186,15 @@ function openUpcomingModal() {
 
 // reviews show back photo
 
-document.querySelectorAll('.reviews-card-review-button').forEach(button => {
-	button.addEventListener('click', function () {
-		if (window.innerWidth >= 1440) {
-			const cards = document.querySelectorAll('.reviews-inner');
-			cards.forEach(card => {
-				card.classList.toggle('reviews-go-to-back');
-			});
-		} else {
-			let backblock;
-			if (this.classList.contains('to-front')) {
-				backblock = this.parentElement.parentElement;
-			} else {
-				backblock = this.parentElement.parentElement.parentElement;
-			}
-			backblock.classList.toggle('reviews-go-to-back');
-		}
-	});
-});
+DOM.reviewsBlock.addEventListener('click', getAroundCard);
+
+function getAroundCard(event) {
+	if (!event.target.closest('.reviews-card-review-button')) {
+		return;
+	}
+	const cards = window.innerWidth >= 1440 ? DOM.reviewsCards : [event.target.closest('.reviews-inner')];
+	cards.forEach(card => card.classList.toggle('reviews-go-to-back'));
+}
 
 // swap gallery right
 
