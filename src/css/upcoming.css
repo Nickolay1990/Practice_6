@@ -225,6 +225,8 @@
 }
 
 #upcoming-button-right:disabled > svg,
-#upcoming-button-left:disabled > svg {
+#upcoming-button-left:disabled > svg,
+#galery-button-left:disabled > svg,
+#galery-button-right:disabled > svg {
 	fill: #a3a5a3;
 }

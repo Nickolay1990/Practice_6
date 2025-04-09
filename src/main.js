@@ -16,6 +16,9 @@ const DOM = {
 	upcomingToggleModalButtons: document.querySelectorAll('[data-toggle-modal]'),
 	reviewsBlock: document.querySelector('.reviews-block'),
 	reviewsCards: document.querySelectorAll('.reviews-inner'),
+	galleryButonRight: document.querySelector('#galery-button-right'),
+	galleryButonLeft: document.querySelector('#galery-button-left'),
+	galleryList: document.querySelector('.galery-list'),
 };
 
 // open and close mobile menu
@@ -46,23 +49,23 @@ function modalWindowHandler() {
 DOM.upcomingButtonRight.addEventListener('click', upcomingButtonRightHandler);
 DOM.upcomingButtonLeft.addEventListener('click', upcomingButtonLeftHandler);
 
-const step = innerWidth < 768 ? 326 : 374;
-let translate = 0;
+const stepUpcoming = innerWidth < 768 ? 326 : 374;
+let translateUpcoming = 0;
 
 function upcomingButtonRightHandler() {
-	translate += step;
-	DOM.upcomingList.style.transform = `translate(-${translate}px)`;
+	translateUpcoming += stepUpcoming;
+	DOM.upcomingList.style.transform = `translate(-${translateUpcoming}px)`;
 	DOM.upcomingButtonLeft.disabled = false;
-	if (innerWidth >= 768 || translate === 652) {
+	if (innerWidth >= 768 || translateUpcoming === 652) {
 		this.disabled = true;
 	}
 }
 
 function upcomingButtonLeftHandler() {
-	translate -= step;
-	DOM.upcomingList.style.transform = `translate(-${translate}px)`;
+	translateUpcoming -= stepUpcoming;
+	DOM.upcomingList.style.transform = `translate(-${translateUpcoming}px)`;
 	DOM.upcomingButtonRight.disabled = false;
-	if (translate === 0) {
+	if (translateUpcoming === 0) {
 		this.disabled = true;
 	}
 }
@@ -198,84 +201,25 @@ function getAroundCard(event) {
 
 // swap gallery right
 
-document.querySelector('#galery-button-right').addEventListener('click', function () {
-	if (window.innerWidth < 768) {
-		this.disabled = true;
-		const element = document.querySelector('.galery-list');
-		const style = window.getComputedStyle(element);
-		const matrix = style.transform;
-		const step = -300;
-		const rightButton = document.querySelector('#galery-right-button-scroll');
-		const leftButton = document.querySelector('#galery-left-button-scroll');
+DOM.galleryButonRight.addEventListener('click', galleryRightHandler);
 
-		if (matrix === 'none') {
-			element.style.transform = `translate(-285px)`;
-			leftButton.classList.remove('upcoming-list-item-button-pic-disabled');
-			leftButton.classList.add('upcoming-list-item-button-pic');
-		} else {
-			const matrixData = matrix.match(/matrix\((.+)\)/)[1].split(', ');
-			const newTranlate = Number(matrixData[4]) + step;
-			if (Number(matrixData[4]) >= -1785) {
-				element.style.transform = `translate(${newTranlate}px)`;
-				if (Number(matrixData[4]) === -1785) {
-					rightButton.classList.add('upcoming-list-item-button-pic-disabled');
-				}
-			}
-		}
-	} else if (window.innerWidth >= 1440) {
-		this.disabled = true;
-		const element = document.querySelector('.galery-list');
-		const style = window.getComputedStyle(element);
-		const matrix = style.transform;
-		const step = -1190;
-		const rightButton = document.querySelector('#galery-right-button-scroll');
-		const leftButton = document.querySelector('#galery-left-button-scroll');
+const stepGallery = innerWidth < 768 ? 300 : innerWidth >= 1440 ? 1190 : 748;
+let translateGallery = 0;
 
-		if (matrix === 'none') {
-			element.style.transform = `translate(-1190px)`;
-			leftButton.classList.remove('upcoming-list-item-button-pic-disabled');
-			leftButton.classList.add('upcoming-list-item-button-pic');
-		} else {
-			const matrixData = matrix.split(', ')[4];
-			const newTranlate = Number(matrixData) + step;
+function galleryRightHandler() {
+	translateGallery += stepGallery;
 
-			if (newTranlate >= -3570) {
-				element.style.transform = `translate(${newTranlate}px)`;
-				if (newTranlate === -3570) {
-					rightButton.classList.remove('upcoming-list-item-button-pic');
-					rightButton.classList.add('upcoming-list-item-button-pic-disabled');
-				}
-			}
-		}
-	} else if (window.innerWidth >= 768) {
-		this.disabled = true;
-		const element = document.querySelector('.galery-list');
-		const style = window.getComputedStyle(element);
-		const matrix = style.transform;
-		const step = -748;
-		const rightButton = document.querySelector('#galery-right-button-scroll');
-		const leftButton = document.querySelector('#galery-left-button-scroll');
-
-		if (matrix === 'none') {
-			element.style.transform = `translate(-748px)`;
-			leftButton.classList.remove('upcoming-list-item-button-pic-disabled');
-			leftButton.classList.add('upcoming-list-item-button-pic');
-		} else {
-			const matrixData = matrix.split(', ')[4];
-			const newTranlate = Number(matrixData) + step;
-			if (newTranlate >= -2244) {
-				element.style.transform = `translate(${newTranlate}px)`;
-				if (newTranlate === -2244) {
-					rightButton.classList.remove('upcoming-list-item-button-pic');
-					rightButton.classList.add('upcoming-list-item-button-pic-disabled');
-				}
-			}
-		}
+	if (translateGallery === 300) {
+		translateGallery -= 15;
 	}
-	setTimeout(() => {
-		this.disabled = false;
-	}, 300);
-});
+
+	DOM.galleryList.style.transform = `translate(-${translateGallery}px)`;
+	DOM.galleryButonLeft.disabled = false;
+
+	if ([2085, 2244, 3570].indexOf(translateGallery) !== -1) {
+		this.disabled = true;
+	}
+}
 
 // swap gallery left
 
