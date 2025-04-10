@@ -34,10 +34,9 @@
 
 		font-size: 68px;
 	}
-}
-
-.gallery-wrapper {
-	overflow: hidden;
+	.gallery-wrapper {
+		overflow: hidden;
+	}
 }
 
 .galery-list {

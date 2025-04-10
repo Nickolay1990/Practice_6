@@ -216,88 +216,27 @@ function galleryRightHandler() {
 	DOM.galleryList.style.transform = `translate(-${translateGallery}px)`;
 	DOM.galleryButonLeft.disabled = false;
 
-	if ([2085, 2244, 3570].indexOf(translateGallery) !== -1) {
+	if ([2085, 2244, 3570].includes(translateGallery)) {
 		this.disabled = true;
 	}
 }
 
 // swap gallery left
 
-document.querySelector('#galery-button-left').addEventListener('click', function () {
-	if (window.innerWidth < 768) {
-		this.disabled = true;
-		const element = document.querySelector('.galery-list');
-		const style = window.getComputedStyle(element);
-		const matrix = style.transform;
-		const step = 300;
-		const leftButton = document.querySelector('#galery-left-button-scroll');
-		const rightButton = document.querySelector('#galery-right-button-scroll');
+DOM.galleryButonLeft.addEventListener('click', galleryLefttHandler);
 
-		if (matrix !== 'none') {
-			const matrixData = matrix.match(/matrix\((.+)\)/)[1].split(', ');
-			const newTranlate = Number(matrixData[4]) + step;
-			if (Number(matrixData[4]) === -285) {
-				element.style.transform = 'none';
-				leftButton.classList.add('upcoming-list-item-button-pic-disabled');
-			} else if (Number(matrixData[4]) === -2085) {
-				rightButton.classList.remove('upcoming-list-item-button-pic-disabled');
-				element.style.transform = `translate(${newTranlate}px)`;
-			} else {
-				element.style.transform = `translate(${newTranlate}px)`;
-			}
-		}
-	} else if (window.innerWidth >= 1440) {
-		this.disabled = true;
-		const element = document.querySelector('.galery-list');
-		const style = window.getComputedStyle(element);
-		const matrix = style.transform;
-		const step = 1190;
-		const leftButton = document.querySelector('#galery-left-button-scroll');
-		const rightButton = document.querySelector('#galery-right-button-scroll');
-		if (matrix !== 'none') {
-			const matrixData = Number(matrix.split(', ')[4]);
-			const newTranlate = matrixData + step;
-
-			if (matrixData === -1190) {
-				element.style.transform = 'none';
-				leftButton.classList.remove('upcoming-list-item-button-pic');
-				leftButton.classList.add('upcoming-list-item-button-pic-disabled');
-			} else if (matrixData === -3570) {
-				rightButton.classList.remove('upcoming-list-item-button-pic-disabled');
-				rightButton.classList.add('upcoming-list-item-button-pic');
-				element.style.transform = `translate(${newTranlate}px)`;
-			} else {
-				element.style.transform = `translate(${newTranlate}px)`;
-			}
-		}
-	} else if (window.innerWidth >= 768) {
-		this.disabled = true;
-		const element = document.querySelector('.galery-list');
-		const style = window.getComputedStyle(element);
-		const matrix = style.transform;
-		const step = 748;
-		const leftButton = document.querySelector('#galery-left-button-scroll');
-		const rightButton = document.querySelector('#galery-right-button-scroll');
-		if (matrix !== 'none') {
-			const matrixData = Number(matrix.split(', ')[4]);
-			const newTranlate = matrixData + step;
-			if (matrixData === -748) {
-				element.style.transform = 'none';
-				leftButton.classList.remove('upcoming-list-item-button-pic');
-				leftButton.classList.add('upcoming-list-item-button-pic-disabled');
-			} else if (matrixData === -2244) {
-				rightButton.classList.remove('upcoming-list-item-button-pic-disabled');
-				rightButton.classList.add('upcoming-list-item-button-pic');
-				element.style.transform = `translate(${newTranlate}px)`;
-			} else {
-				element.style.transform = `translate(${newTranlate}px)`;
-			}
-		}
+function galleryLefttHandler() {
+	if ([2085, 2244, 3570].includes(translateGallery)) {
+		DOM.galleryButonRight.disabled = false;
 	}
-	setTimeout(() => {
-		this.disabled = false;
-	}, 300);
-});
+
+	translateGallery = translateGallery === 285 ? 0 : translateGallery - stepGallery;
+
+	DOM.galleryList.style.transform = `translate(-${translateGallery}px)`;
+	if (!translateGallery) {
+		this.disabled = true;
+	}
+}
 
 // open modal gallery
 
