@@ -1,3 +1,6 @@
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
+
 // DOM elements
 const DOM = {
 	menuButtons: document.querySelectorAll('[data-menuButton]'),
@@ -240,17 +243,9 @@ function galleryLefttHandler() {
 
 // open modal gallery
 
-const galleryList = document.querySelector('.galery-list');
-galleryList.addEventListener('click', galleryModalHandler);
-
-function galleryModalHandler(event) {
-	if (window.innerWidth >= 1440 && event.target.nodeName == 'IMG') {
-		const imgNumber = event.target.src.split('-')[1].split('.')[0];
-		const modal = basicLightbox.create(`<img
-							src="./gallery-modal-${imgNumber}.jpg"
-							srcset="./gallery-modal-${imgNumber}@2x.jpg 2x"
-							alt="Nature in the Ukrainian mountains"
-						/>`);
-		modal.show();
-	}
-}
+let gallery = new SimpleLightbox('.galery-list a', {
+	captionsData: 'alt',
+	loop: false,
+	docClose: false,
+	htmlClass: 'qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq',
+});

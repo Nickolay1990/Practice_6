@@ -93,3 +93,13 @@ fieldset {
 	clip: rect(0 0 0 0);
 	overflow: hidden;
 }
+
+.sl-overlay {
+	background-color: black !important;
+}
+
+.sl-next,
+.sl-prev,
+.sl-close {
+	color: #f7fbfb !important;
+}
